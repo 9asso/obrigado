@@ -9,7 +9,7 @@
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01,
-    "description": "Escape Santa is a fast-paced 3D escape game where Santa isn’t here to give gifts—he’s hunting you down. Explore eerie environments, solve quick challenges, and use your wits to find a way out before Santa catches you. Run, hide, and escape… if you can."
+    "description": "Escape Santa is a fast-paced 3D escape game where Santa isn’t here to give gifts—he's hunting you down. Explore eerie environments, solve quick challenges, and use your wits to find a way out before Santa catches you. Run, hide, and escape… if you can."
   },
   "runtimeOverrides": {
     "baseUrl": "https://storage.googleapis.com/appsconfigs"
