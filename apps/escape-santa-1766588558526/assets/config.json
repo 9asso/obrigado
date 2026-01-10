@@ -33,7 +33,7 @@
     "url": "https://playhop.com/dist-app/481662?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 15
+      "duration": 20
     },
     "interstitial": {
       "enabled": true,
@@ -84,7 +84,7 @@
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
