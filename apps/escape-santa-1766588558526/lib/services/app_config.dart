@@ -73,15 +73,6 @@ class AppConfig {
     }
 
     Future<void> _fetchAndApplyRemoteRuntimeOverrides() async {
-        // Skip remote fetch if URL or app identifier is not properly configured
-        final base = _runtimeOverridesBaseUrl;
-        final id = _appIdentifier;
-        
-        if (base == null || base.isEmpty || id.isEmpty) {
-            // No valid configuration - use config.json values only
-            return;
-        }
-
         final uri = _buildRuntimeOverridesUri();
         if (uri == null) return;
 
@@ -92,10 +83,7 @@ class AppConfig {
                     })
                     .timeout(const Duration(seconds: 2));
 
-            if (response.statusCode != 200) {
-                // URL not reachable or error response - use config.json values
-                return;
-            }
+            if (response.statusCode != 200) return;
 
             final decoded = json.decode(response.body);
             if (decoded is! Map<String, dynamic>) return;
@@ -106,8 +94,7 @@ class AppConfig {
             final prefs = await SharedPreferences.getInstance();
             await prefs.setString(_runtimeOverridesCacheKey, json.encode(decoded));
         } catch (_) {
-            // Network error or timeout - use config.json values
-            return;
+            // ignore
         }
     }
 
