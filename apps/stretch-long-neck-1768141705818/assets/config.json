@@ -190,7 +190,7 @@
     }
   },
   "subscription": {
-    "enabled": true,
+    "enabled": false,
     "types": [
       "weekly",
       "monthly",
