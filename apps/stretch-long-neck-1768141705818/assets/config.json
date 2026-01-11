@@ -17,22 +17,22 @@
     "enabled": true,
     "testMode": true,
     "android": {
-      "appId": "ca-app-pub-3940256099942544~3347511713",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
+      "appId": "ca-app-pub-5080833301669041~3899365836",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/3081108188",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/7174419954"
     },
     "ios": {
-      "appId": "ca-app-pub-3940256099942544~1458002511",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910"
+      "appId": "ca-app-pub-5080833301669041~3899365836",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/3081108188",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/7174419954"
     }
   },
   "game": {
     "enabled": true,
-    "url": "",
+    "url": "https://playhop.com/dist-app/485580?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 15
+      "duration": 20
     },
     "interstitial": {
       "enabled": true,
@@ -83,7 +83,7 @@
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -145,7 +145,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/difficultytitleimage.png"
     },
     "moreGames": {
       "enabled": true,
@@ -166,7 +167,7 @@
         "borderRadius": 25
       },
       "gameImages": [
-        "https://avatars.mds.yandex.net/get-games/17782796/2a0000019abc1841b759e1d6b0c84a476c0c/pjpg928x522",
+        "assets/pack/pjpg928x522",
         "https://avatars.mds.yandex.net/get-games/10152950/2a00000198e3d0fd80cdc79f716ea76ffd30/pjpg928x522",
         "https://avatars.mds.yandex.net/get-games/2977039/2a0000019714a39c4a11b42fc71fc35a6cc2/pjpg928x522",
         "https://avatars.mds.yandex.net/get-games/3006389/2a000001939b1343b9e6de1ff0f829fb797d/pjpg928x522",
@@ -228,7 +229,7 @@
           "shadowBlurRadius": 1
         },
         "price": {
-          "text": "$7.99",
+          "text": "",
           "fontSize": 24,
           "fontWeight": "bold",
           "color": "#FFFFFF",
@@ -241,7 +242,8 @@
         "right": -10,
         "height": 40
       }
-    }
+    },
+    "type": "weekly"
   },
   "theme": {
     "primaryColor": "#6366F1",
