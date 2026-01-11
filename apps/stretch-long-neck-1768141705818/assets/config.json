@@ -36,7 +36,7 @@
     },
     "interstitial": {
       "enabled": true,
-      "interval": 90,
+      "interval": 70,
       "countdownPosition": "topLeft"
     },
     "menu": {
@@ -149,7 +149,7 @@
       "titleImage": "assets/pack/difficultytitleimage.png"
     },
     "moreGames": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "header": "assets/pack/moregames.png",
@@ -224,7 +224,7 @@
           "text": "Enjoy an uninterrupted experience!",
           "fontSize": 16,
           "fontWeight": "w600",
-          "color": "#5F3190",
+          "color": "#069f5d",
           "shadowColor": "#00000073",
           "shadowBlurRadius": 1
         },
