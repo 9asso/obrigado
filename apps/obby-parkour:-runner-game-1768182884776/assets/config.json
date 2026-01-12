@@ -145,7 +145,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/difficulty.png"
     },
     "moreGames": {
       "enabled": true,
@@ -183,7 +184,7 @@
       },
       "progressBar": {
         "width": 310,
-        "height": 24,
+        "height": 40,
         "borderRadius": 10
       }
     }
@@ -244,7 +245,7 @@
     }
   },
   "theme": {
-    "primaryColor": "#bb00ff",
+    "primaryColor": "#ffdd00",
     "accentColor": "#ffd500",
     "errorColor": "#0084ff"
   },
