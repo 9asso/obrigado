@@ -145,7 +145,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/difficulty.png"
     },
     "moreGames": {
       "enabled": true,
