@@ -22,14 +22,14 @@
       "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
     },
     "ios": {
-      "appId": "ca-app-pub-3940256099942544~1458002511",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910"
+      "appId": "ca-app-pub-6258482684280708~7606121645",
+      "bannerAdUnitId": "ca-app-pub-6258482684280708/1896637576",
+      "interstitialAdUnitId": "ca-app-pub-6258482684280708/9583555908"
     }
   },
   "game": {
     "enabled": true,
-    "url": "",
+    "url": "https://playhop.com/dist-app/269613?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 15
@@ -145,7 +145,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/difficulty.png"
     },
     "moreGames": {
       "enabled": true,
@@ -183,7 +184,7 @@
       },
       "progressBar": {
         "width": 310,
-        "height": 24,
+        "height": 40,
         "borderRadius": 10
       }
     }
@@ -244,9 +245,9 @@
     }
   },
   "theme": {
-    "primaryColor": "#6366F1",
-    "accentColor": "#EC4899",
-    "errorColor": "#F44336"
+    "primaryColor": "#ffdd00",
+    "accentColor": "#ffd500",
+    "errorColor": "#0084ff"
   },
   "animation": {
     "buttonPressDuration": 150,
