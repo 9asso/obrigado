@@ -213,7 +213,7 @@
       "content": {
         "iconHeight": 80,
         "title": {
-          "text": "NO ADS!",
+          "text": "",
           "fontSize": 40,
           "fontWeight": "bold",
           "color": "#FFC800",
@@ -221,7 +221,7 @@
           "shadowBlurRadius": 3
         },
         "subtitle": {
-          "text": "Enjoy an uninterrupted experience!",
+          "text": "",
           "fontSize": 16,
           "fontWeight": "w600",
           "color": "#5F3190",
