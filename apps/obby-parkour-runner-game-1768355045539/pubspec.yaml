@@ -1,6 +1,6 @@
 name: runnergame
 description: "Obby Parkour: Runner Game Flutter application"
-version: 3.0.0+3
+version: 2.0.0+2
 environment:
   sdk: ">=3.0.0 <4.0.0"
 dependencies:
