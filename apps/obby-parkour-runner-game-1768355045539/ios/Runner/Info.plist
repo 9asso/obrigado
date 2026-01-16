@@ -4,7 +4,7 @@
 <dict>
 	<key>UIDeviceFamily</key>
 	<array>
-	<integer>1</integer> <!-- iPhone only -->
+		<integer>1</integer> <!-- iPhone only -->
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
