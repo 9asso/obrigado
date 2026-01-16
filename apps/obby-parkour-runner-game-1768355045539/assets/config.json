@@ -4,8 +4,8 @@
     "icon": "assets/pack/appicon.png",
     "packageName": "com.obbyparkour.runnergame",
     "identifierId": "com.obbyparkour.runnergame",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": "2",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
