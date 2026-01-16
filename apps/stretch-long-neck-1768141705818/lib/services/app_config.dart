@@ -172,12 +172,16 @@ class AppConfig {
       _config['admob']?['android']?['bannerAdUnitId'] ?? '';
   String get androidInterstitialAdUnitId =>
       _config['admob']?['android']?['interstitialAdUnitId'] ?? '';
+  String get androidAppOpenAdUnitId =>
+      _config['admob']?['android']?['appOpenAdUnitId'] ?? '';
 
   String get iosAdmobAppId => _config['admob']?['ios']?['appId'] ?? '';
   String get iosBannerAdUnitId =>
       _config['admob']?['ios']?['bannerAdUnitId'] ?? '';
   String get iosInterstitialAdUnitId =>
       _config['admob']?['ios']?['interstitialAdUnitId'] ?? '';
+  String get iosAppOpenAdUnitId =>
+      _config['admob']?['ios']?['appOpenAdUnitId'] ?? '';
 
   // Game settings
   bool get gameEnabled => _config['game']?['enabled'] ?? true;

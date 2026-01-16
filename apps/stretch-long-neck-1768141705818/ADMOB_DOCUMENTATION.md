@@ -16,12 +16,14 @@ The AdMob configuration is located in `assets/config.json`:
     "android": {
       "appId": "ca-app-pub-3940256099942544~3347511713",
       "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
+      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712",
+      "appOpenAdUnitId": "ca-app-pub-3940256099942544/3419835294"
     },
     "ios": {
       "appId": "ca-app-pub-3940256099942544~1458002511",
       "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910"
+      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910",
+      "appOpenAdUnitId": "ca-app-pub-3940256099942544/5662855259"
     }
   }
 }
@@ -33,11 +35,16 @@ The AdMob configuration is located in `assets/config.json`:
 - `android.appId`: Android AdMob App ID
 - `android.bannerAdUnitId`: Android banner ad unit ID
 - `android.interstitialAdUnitId`: Android interstitial ad unit ID
+- `android.appOpenAdUnitId`: Android App Open ad unit ID
 - `ios.appId`: iOS AdMob App ID
 - `ios.bannerAdUnitId`: iOS banner ad unit ID
 - `ios.interstitialAdUnitId`: iOS interstitial ad unit ID
+- `ios.appOpenAdUnitId`: iOS App Open ad unit ID
 
 ## Ad Implementation by Screen
+
+### App Open Ads
+- **App Open Ad**: Shown when the app is opened or resumed (foregrounded), if `appOpenAdUnitId` is set.
 
 ### 1. Home Screen
 - **Banner Ad**: Displayed at the bottom of the screen
