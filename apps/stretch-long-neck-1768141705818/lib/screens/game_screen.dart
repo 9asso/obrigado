@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../services/app_config.dart';
 import '../services/admob_service.dart';
 
@@ -26,6 +26,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Offset _fabPosition = const Offset(20, 20); // Position from bottom-right
   final List<String> _pageHistory = []; // Track all visited pages
   Timer? _interstitialTimer;
+  Timer? _loadingTimeoutTimer;
   int _countdown = 0;
   bool _showCountdown = false;
 
@@ -43,7 +44,23 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     _splashAnimationController = AnimationController(
       duration: const Duration(milliseconds: 800),
       vsync: this,
-    );
+    )
+      ..addListener(() {
+        if (!mounted) return;
+        if (_showSplash) setState(() {});
+      })
+      ..addStatusListener((status) {
+        if (status != AnimationStatus.completed) return;
+        if (!mounted) return;
+
+        if (_showSplash) {
+          setState(() {
+            _showSplash = false;
+          });
+        }
+
+        _startInterstitialTimer();
+      });
     _bounceAnimationController = AnimationController(
       duration: const Duration(milliseconds: 1000),
       vsync: this,
@@ -58,7 +75,49 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     _splashAnimationController.dispose();
     _bounceAnimationController.dispose();
     _interstitialTimer?.cancel();
+    _loadingTimeoutTimer?.cancel();
     super.dispose();
+  }
+
+  Duration get _loaderDuration {
+    // If loader is enabled, cap loading UI to that duration.
+    // Otherwise, still prevent endless spinners with a sane default.
+    final seconds = _config.gameLoaderEnabled ? _config.gameLoaderDuration : 10;
+    return Duration(seconds: seconds.clamp(1, 120));
+  }
+
+  void _scheduleLoadingTimeout() {
+    _loadingTimeoutTimer?.cancel();
+    _loadingTimeoutTimer = Timer(_loaderDuration, () {
+      if (!mounted) return;
+
+      setState(() {
+        _isLoading = false;
+        // If the page never finishes, still show/hide the splash on a timer
+        // when game loader is enabled.
+        if (_config.gameLoaderEnabled) {
+          _showSplash = true;
+        }
+      });
+
+      if (_config.gameLoaderEnabled) {
+        _startSplashProgress();
+      } else {
+        _startInterstitialTimer();
+      }
+    });
+  }
+
+  void _startSplashProgress() {
+    // If the splash countdown already started (e.g., WebView finished late after
+    // the watchdog fired), don't restart it and extend the splash.
+    if (_splashAnimationController.isAnimating) return;
+
+    _splashAnimationController
+      ..stop()
+      ..reset();
+    _splashAnimationController.duration = _loaderDuration;
+    _splashAnimationController.forward();
   }
 
   Future<void> _loadConfig() async {
@@ -155,6 +214,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             setState(() {
               _isLoading = true;
             });
+
+            // Never allow loading UI to run indefinitely.
+            _scheduleLoadingTimeout();
           },
           onPageFinished: (String url) {
             print('✅ Page finished loading: $url');
@@ -166,20 +228,13 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               _isLoading = false;
               _showSplash = _config.gameLoaderEnabled; // Show splash based on config
             });
+
+            _loadingTimeoutTimer?.cancel();
             
             if (_config.gameLoaderEnabled) {
-              _splashAnimationController.forward();
-              
-              // Hide splash screen after configured duration
-              Future.delayed(Duration(seconds: _config.gameLoaderDuration), () {
-                if (mounted) {
-                  setState(() {
-                    _showSplash = false;
-                  });
-                  // Start interstitial timer after splash is hidden
-                  _startInterstitialTimer();
-                }
-              });
+              _startSplashProgress();
+            } else {
+              _startInterstitialTimer();
             }
           },
           onWebResourceError: (WebResourceError error) {
@@ -336,11 +391,18 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         children: [
           if (_controller != null) WebViewWidget(controller: _controller!),
           if (_isLoading)
-            Container(
-              color: Colors.black,
-              child: Center(
-                child: CircularProgressIndicator(
-                  color: _config.accentColor,
+            Positioned.fill(
+              child: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.35),
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -413,6 +475,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                             borderRadius: BorderRadius.circular(_config.splashProgressBarBorderRadius),
                             child: LinearProgressIndicator(
                               backgroundColor: Colors.transparent,
+                              value: _splashAnimationController.value,
                               valueColor: AlwaysStoppedAnimation<Color>(_config.primaryColor),
                             ),
                           ),
@@ -425,10 +488,17 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             ),
           // Menu overlay
           if (_showMenu)
-            GestureDetector(
-              onTap: _toggleMenu,
-              child: Container(
-                color: Colors.black.withOpacity(1),
+            Positioned.fill(
+              child: GestureDetector(
+                onTap: _toggleMenu,
+                child: ClipRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                    child: Container(
+                      color: Colors.black.withOpacity(0.75),
+                    ),
+                  ),
+                ),
               ),
             ),
           // Menu dialog
@@ -504,7 +574,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           children: [
             Image.asset(
               imagePath,
-              height: 100,
+              width: 150,
               fit: BoxFit.fill,
               errorBuilder: (context, error, stackTrace) {
                 return Icon(Icons.error, color: _config.primaryColor, size: 24);

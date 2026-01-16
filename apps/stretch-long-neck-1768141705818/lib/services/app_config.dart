@@ -325,7 +325,7 @@ class AppConfig {
   // Difficulty
   String get difficultyTitleImage =>
       _config['screens']['difficulty']['titleImage'] ??
-      'assets/pack/difficultytitle.png';
+      'assets/pack/difficultytitleimage.png';
   String get difficultyBackgroundImage =>
       _config['screens']['difficulty']['images']['background'] ??
       'assets/pack/bg.png';
