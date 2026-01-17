@@ -16,7 +16,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   WebViewController? _controller;
   late AppConfig _config;
   bool _configLoaded = false;
-  bool _isLoading = true;
+  // bool _isLoading = true;
   bool _showMenu = false;
   bool _showSplash = false; // Show splash screen after loading
   late AnimationController _menuAnimationController;
@@ -92,7 +92,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       if (!mounted) return;
 
       setState(() {
-        _isLoading = false;
+        // _isLoading = false;
         // If the page never finishes, still show/hide the splash on a timer
         // when game loader is enabled.
         if (_config.gameLoaderEnabled) {
@@ -211,21 +211,15 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             // print('📚 History count: ${_pageHistory.length}');
             // print('📋 Full history: $_pageHistory');
             
-            setState(() {
-              _isLoading = true;
-            });
+            // setState(() {
+            //   _isLoading = true;
+            // });
 
             // Never allow loading UI to run indefinitely.
             _scheduleLoadingTimeout();
-          },
-          onPageFinished: (String url) {
-            print('✅ Page finished loading: $url');
-            
-            // Inject JavaScript to remove unwanted modals
-            _injectModalBlocker();
             
             setState(() {
-              _isLoading = false;
+              // _isLoading = false;
               _showSplash = _config.gameLoaderEnabled; // Show splash based on config
             });
 
@@ -236,6 +230,25 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             } else {
               _startInterstitialTimer();
             }
+          },
+          onPageFinished: (String url) {
+            print('✅ Page finished loading: $url');
+            
+            // Inject JavaScript to remove unwanted modals
+            _injectModalBlocker();
+            
+            // setState(() {
+            //   _isLoading = false;
+            //   _showSplash = _config.gameLoaderEnabled; // Show splash based on config
+            // });
+
+            // _loadingTimeoutTimer?.cancel();
+            
+            // if (_config.gameLoaderEnabled) {
+            //   _startSplashProgress();
+            // } else {
+            //   _startInterstitialTimer();
+            // }
           },
           onWebResourceError: (WebResourceError error) {
             print('❌ WebView error: ${error.description}');
@@ -390,22 +403,22 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       body: Stack(
         children: [
           if (_controller != null) WebViewWidget(controller: _controller!),
-          if (_isLoading)
-            Positioned.fill(
-              child: ClipRect(
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                  child: Container(
-                    color: Colors.black.withOpacity(0.35),
-                    child: Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.white.withOpacity(0.8),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+          // if (_isLoading)
+          //   Positioned.fill(
+          //     child: ClipRect(
+          //       child: BackdropFilter(
+          //         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+          //         child: Container(
+          //           color: Colors.black.withOpacity(0.35),
+          //           child: Center(
+          //             child: CircularProgressIndicator(
+          //               color: Colors.white.withOpacity(0.8),
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
           // Splash screen after loading
           if (_showSplash)
             Container(

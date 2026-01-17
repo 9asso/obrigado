@@ -590,65 +590,16 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                                       ),
                                     ),
 
-                                    // Restore Purchase button
+                                    // Restore Purchase
                                     GestureDetector(
                                       onTap: _handleRestorePurchase,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: Builder(
-                                          builder: (context) {
-                                            final restoreImage = _config
-                                                .subscriptionRestorePurchaseImage
-                                                .trim();
-                                            const restoreHeight = 40.0;
-
-                                            Widget fallback() {
-                                              return Container(
-                                                padding: const EdgeInsets.symmetric(
-                                                  horizontal: 12,
-                                                  vertical: 10,
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  color: Colors.green,
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                ),
-                                                child: const Text(
-                                                  'Restore Purchase',
-                                                  style: TextStyle(
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-
-                                            if (restoreImage.isEmpty) {
-                                              return fallback();
-                                            }
-
-                                            final isNetwork =
-                                                restoreImage.startsWith('http://') ||
-                                                    restoreImage.startsWith('https://');
-
-                                            return isNetwork
-                                                ? Image.network(
-                                                    restoreImage,
-                                                    height: restoreHeight,
-                                                    errorBuilder: (context, error,
-                                                        stackTrace) {
-                                                      return fallback();
-                                                    },
-                                                  )
-                                                : Image.asset(
-                                                    restoreImage,
-                                                    height: restoreHeight,
-                                                    errorBuilder: (context, error,
-                                                        stackTrace) {
-                                                      return fallback();
-                                                    },
-                                                  );
-                                          },
+                                      child: Text(
+                                        'Restore Purchase',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          decoration: TextDecoration.underline,
                                         ),
                                       ),
                                     ),

@@ -607,10 +607,6 @@ class AppConfig {
   String get subscriptionPrivacyUrl =>
       _config['subscription']['popup']['footer']?['privacy']?['url'] ?? '';
 
-  String get subscriptionRestorePurchaseImage =>
-      _config['subscription']['popup']['footer']?['restore']?['image'] ??
-      '';
-
   double get subscriptionFooterTopPadding =>
       (_config['subscription']['popup']['footer']?['style']?['topPadding'] ??
               12)

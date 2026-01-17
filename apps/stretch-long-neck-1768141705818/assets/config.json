@@ -4,8 +4,8 @@
     "icon": "assets/pack/appicon.png",
     "packageName": "com.neckgame.obby",
     "identifierId": "com.neckgame.obby",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": "2",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
@@ -256,9 +256,6 @@
         }
       },
       "footer": {
-        "restore": {
-          "image": "assets/pack/restore.png"
-        },
         "terms": {
           "url": "https://www.apple.com/legal/internet-services/itunes/"
         },
