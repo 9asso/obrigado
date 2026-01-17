@@ -85,7 +85,7 @@
       }
     },
     "genderSelection": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",

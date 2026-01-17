@@ -410,7 +410,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                     color: Colors.black54,
                     child: Center(
                       child: GestureDetector(
-                        onTap: () {}, // Prevent tap from propagating to barrier
+                        onTap: () {}, // Prevent tap from propagating
                         child: ClipRect(
                           clipBehavior: Clip.none,
                           child: Stack(
@@ -418,12 +418,12 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                             children: [
                               Container(
                                 width: _config.subscriptionPopupWidth,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.9,
+                                height: MediaQuery.of(context).size.height * 0.9,
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
-                                        _config.subscriptionBackgroundImage),
+                                      _config.subscriptionBackgroundImage,
+                                    ),
                                     fit: BoxFit.fill,
                                   ),
                                 ),
@@ -432,88 +432,128 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      
-                                      const SizedBox(height: 120),
-
-                                      // NO ADS! Text
-                                      Text(
-                                        _config.subscriptionTitleText,
-                                        style: TextStyle(
-                                          fontSize:
-                                              _config.subscriptionTitleFontSize,
-                                          fontWeight: FontWeight.bold,
-                                          color: _config.subscriptionTitleColor,
-                                          shadows: [
-                                            Shadow(
-                                              color: _config
-                                                  .subscriptionTitleShadowColor,
-                                              blurRadius: _config
-                                                  .subscriptionTitleShadowBlurRadius,
-                                              offset: const Offset(0, 0),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-
-                                      const SizedBox(height: 0),
-
-                                      // Subtitle Text
-                                      Text(
-                                        _config.subscriptionSubtitleText,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          fontSize: _config
-                                              .subscriptionSubtitleFontSize,
-                                          fontWeight: FontWeight.w600,
-                                          color:
-                                              _config.subscriptionSubtitleColor,
-                                          shadows: [
-                                            Shadow(
-                                              color: _config
-                                                  .subscriptionSubtitleShadowColor,
-                                              blurRadius: _config
-                                                  .subscriptionSubtitleShadowBlurRadius,
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-
-                                      const SizedBox(height: 25),
-
-                                      // Price Tag with Text - Tappable
-                                      GestureDetector(
-                                        onTap: _handlePurchase,
+                                      /// =========================
+                                      /// TOP IMAGE STACK SECTION
+                                      /// =========================
+                                      Expanded(
                                         child: Stack(
+                                          clipBehavior: Clip.none,
                                           alignment: Alignment.center,
                                           children: [
-                                            Image.asset(
-                                              _config.subscriptionPriceTagImage,
-                                              height: 60,
-                                              errorBuilder:
-                                                  (context, error, stackTrace) {
-                                                return Container(
-                                                  child: Text(
-                                                    _config
-                                                        .subscriptionPriceText,
-                                                    style: const TextStyle(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                );
-                                              },
+                                            // Main image
+                                            ClipRRect(
+                                              borderRadius: BorderRadius.circular(24),
+                                              child: Image.network(
+                                                'https://i.pinimg.com/236x/52/ca/34/52ca343608edcc44b480f8d6ac57355d.jpg',
+                                                height: double.infinity,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+
+                                            // Avatar (left)
+                                            Positioned(
+                                              left: -50,
+                                              top: 20,
+                                              child: ClipOval(
+                                                child: Image.network(
+                                                  'https://i.pinimg.com/236x/52/ca/34/52ca343608edcc44b480f8d6ac57355d.jpg',
+                                                  height: 40,
+                                                  width: 40,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+
+                                            // Play button
+                                            Positioned(
+                                              bottom: 30,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.circular(12),
+                                                child: Image.network(
+                                                  'https://www.kapitaler.com/images/playbutton.png',
+                                                  height: 60,
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),
+                                      ),
+
+                                      const SizedBox(height: 20),
+
+                                      /// =========================
+                                      /// BOTTOM ACTION ROW
+                                      /// =========================
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              // TODO: Open Privacy Policy
+                                            },
+                                            child: const Text(
+                                              'Privacy Policy',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                decoration: TextDecoration.underline,
+                                              ),
+                                            ),
+                                          ),
+
+                                          const SizedBox(width: 20),
+
+                                          // Purchase button
+                                          GestureDetector(
+                                            onTap: _handlePurchase,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(8),
+                                              child: Image.network(
+                                                'https://www.clker.com/cliparts/T/P/A/H/P/k/purchase-button.svg',
+                                                height: 50,
+                                                errorBuilder: (context, error, stackTrace) {
+                                                  return Container(
+                                                    padding: const EdgeInsets.symmetric(
+                                                      horizontal: 20,
+                                                      vertical: 10,
+                                                    ),
+                                                    color: Colors.green,
+                                                    child: const Text(
+                                                      'Purchase',
+                                                      style: TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ),
+                                            ),
+                                          ),
+
+                                          const SizedBox(width: 20),
+
+                                          GestureDetector(
+                                            onTap: () {
+                                              // TODO: Open Terms of Service
+                                            },
+                                            child: const Text(
+                                              'Terms of Service',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                decoration: TextDecoration.underline,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ],
                                   ),
                                 ),
                               ),
 
-                              // Close button at top right
+                              /// =========================
+                              /// CLOSE BUTTON
+                              /// =========================
                               Positioned(
                                 top: _config.subscriptionCloseButtonTop,
                                 left: _config.subscriptionCloseButtonRight,
@@ -521,8 +561,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                                   onTap: _closeSubscriptionPopup,
                                   child: Image.asset(
                                     _config.subscriptionCloseImage,
-                                    height:
-                                        _config.subscriptionCloseButtonHeight,
+                                    height: _config.subscriptionCloseButtonHeight,
                                     errorBuilder: (context, error, stackTrace) {
                                       return Container(
                                         width: 40,
@@ -534,7 +573,6 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                                         child: const Icon(
                                           Icons.close,
                                           color: Colors.black87,
-                                          size: 24,
                                         ),
                                       );
                                     },
@@ -549,6 +587,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                   ),
                 ),
               ),
+
           ], // Stack children
         ), // Stack
       ), // Container
