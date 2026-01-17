@@ -636,14 +636,41 @@ class AppConfig {
   List<String> get subscriptionTypes =>
       List<String>.from(_config['subscription']['types'] ?? ['monthly']);
 
+    String _readSubscriptionProductId(String platform, {String? type}) {
+        try {
+            final productIds = _config['subscription']?['productIds'];
+            if (productIds is! Map) return '';
+
+            final platformValue = productIds[platform];
+            if (platformValue is String) return platformValue;
+
+            if (platformValue is Map) {
+                final wantedType = (type != null && type.trim().isNotEmpty)
+                        ? type.trim()
+                        : (subscriptionTypes.isNotEmpty ? subscriptionTypes.first : '');
+                final v = platformValue[wantedType];
+                return v is String ? v : '';
+            }
+        } catch (_) {
+            // ignore
+        }
+
+        return '';
+    }
+
   String getSubscriptionProductId(String type, String platform) {
-    return _config['subscription']['productIds']?[platform]?[type] ?? '';
+        final v = _readSubscriptionProductId(platform, type: type);
+        return v;
   }
 
   String get androidSubscriptionProductId =>
-      _config['subscription']['productIds']['android'] ?? 'subscription_no_ads';
+            _readSubscriptionProductId('android').isNotEmpty
+                    ? _readSubscriptionProductId('android')
+                    : 'subscription_no_ads';
   String get iosSubscriptionProductId =>
-      _config['subscription']['productIds']['ios'] ?? 'subscription_no_ads';
+            _readSubscriptionProductId('ios').isNotEmpty
+                    ? _readSubscriptionProductId('ios')
+                    : 'subscription_no_ads';
 
   // Theme
   Color get primaryColor =>

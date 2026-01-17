@@ -198,7 +198,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
                     padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
                       // width: double.infinity,
-                      height: 110,
+                      height: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
@@ -385,7 +385,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
             children: [
               Image.asset(
                 iconUrl,
-                height: 140,
+                height: 120,
                 errorBuilder: (context, error, stackTrace) {
                   return Icon(
                     gender == 'girl' ? Icons.girl : Icons.boy,

@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart' show TargetPlatform, defaultTargetPlatform, debugPrint, kDebugMode;
+import 'package:flutter/foundation.dart'
+    show TargetPlatform, defaultTargetPlatform, debugPrint, kDebugMode;
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
 
 class AttService {
@@ -18,7 +19,8 @@ class AttService {
 
       // Only prompt if it has not been determined yet.
       if (status == TrackingStatus.notDetermined) {
-        final newStatus = await AppTrackingTransparency.requestTrackingAuthorization();
+        final newStatus =
+            await AppTrackingTransparency.requestTrackingAuthorization();
         if (kDebugMode) {
           debugPrint('ATT: new status=$newStatus');
         }

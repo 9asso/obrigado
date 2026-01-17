@@ -239,7 +239,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                   Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
-                      height: 110,
+                      height: 100,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
@@ -262,7 +262,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                     ),
                   ),
 
-                  const SizedBox(height: 25),
+                  const SizedBox(height: 15),
 
                   // Difficulty selection buttons in the middle
                   Row(
@@ -591,7 +591,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
               children: [
                 Image.asset(
                   iconUrl,
-                  width: 180,
+                  width: 160,
                   errorBuilder: (context, error, stackTrace) {
                     return Icon(
                       difficulty == 'Easy'
