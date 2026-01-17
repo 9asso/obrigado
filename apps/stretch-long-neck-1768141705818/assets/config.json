@@ -243,6 +243,14 @@
         "top": -10,
         "right": -10,
         "height": 40
+      },
+      "footer": {
+        "terms": {
+          "url": "https://www.apple.com/legal/internet-services/itunes/"
+        },
+        "privacy": {
+          "url": "https://www.google.com/"
+        }
       }
     },
     "type": "weekly"

@@ -1,5 +1,8 @@
+import 'dart:ui' show ImageFilter;
+
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/app_config.dart';
 import '../services/admob_service.dart';
 import '../services/iap_service.dart';
@@ -156,8 +159,8 @@ class _DifficultyScreenState extends State<DifficultyScreen>
 
       // Use subscription type from config (first type in the types array)
       await iapService.purchaseSubscription(
-        type: _config.subscriptionTypes.isNotEmpty 
-            ? _config.subscriptionTypes.first 
+        type: _config.subscriptionTypes.isNotEmpty
+            ? _config.subscriptionTypes.first
             : 'weekly',
         onSuccess: () {
           if (mounted) {
@@ -206,6 +209,32 @@ class _DifficultyScreenState extends State<DifficultyScreen>
         duration: const Duration(seconds: 3),
       ),
     );
+  }
+
+  Future<void> _openExternalLink({
+    required String label,
+    required String url,
+  }) async {
+    final trimmed = url.trim();
+    if (trimmed.isEmpty) {
+      _showErrorMessage('$label URL is not configured');
+      return;
+    }
+
+    final uri = Uri.tryParse(trimmed);
+    if (uri == null || !(uri.isScheme('http') || uri.isScheme('https'))) {
+      _showErrorMessage('Invalid $label URL');
+      return;
+    }
+
+    try {
+      final ok = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!ok) {
+        _showErrorMessage('Could not open $label');
+      }
+    } catch (e) {
+      _showErrorMessage('Could not open $label: $e');
+    }
   }
 
   @override
@@ -388,195 +417,170 @@ class _DifficultyScreenState extends State<DifficultyScreen>
               ),
 
             // Banner Ad positioned at bottom
-            if (_isBannerAdLoaded && _bannerAd != null)
-              Positioned(
-                bottom: 20,
-                left: 0,
-                right: 0,
-                child: Center(
-                  child: BannerAdWidget(
-                      key: ValueKey(_bannerAd), bannerAd: _bannerAd!),
+            if (!_showSubscriptionPopup)
+              if (_isBannerAdLoaded && _bannerAd != null)
+                Positioned(
+                  bottom: 20,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: BannerAdWidget(
+                        key: ValueKey(_bannerAd), bannerAd: _bannerAd!),
+                  ),
                 ),
-              ),
 
             // Subscription Popup Overlay
             if (_showSubscriptionPopup)
               Positioned.fill(
-                child: GestureDetector(
-                  onTap: _config.subscriptionBarrierDismissible
-                      ? _closeSubscriptionPopup
-                      : null,
-                  child: Container(
-                    color: Colors.black54,
-                    child: Center(
+                child: Stack(
+                  children: [
+                    // Blurred dimming barrier (tap outside to close)
+                    Positioned.fill(
                       child: GestureDetector(
-                        onTap: () {}, // Prevent tap from propagating
+                        behavior: HitTestBehavior.opaque,
+                        onTap: _closeSubscriptionPopup,
                         child: ClipRect(
-                          clipBehavior: Clip.none,
-                          child: Stack(
-                            clipBehavior: Clip.none,
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(
+                              sigmaX: 10,
+                              sigmaY: 10,
+                            ),
+                            child: Container(
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // Popup content
+                    Center(
+                      child: Listener(
+                        behavior: HitTestBehavior.opaque,
+                        onPointerDown: (_) {},
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.9,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
-                                width: _config.subscriptionPopupWidth,
-                                height: MediaQuery.of(context).size.height * 0.9,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(
-                                      _config.subscriptionBackgroundImage,
+                              /// =========================
+                              /// TOP IMAGE STACK SECTION
+                              /// =========================
+                              Expanded(
+                                child: Stack(
+                                  clipBehavior: Clip.none,
+                                  alignment: Alignment.center,
+                                  children: [
+                                    // Main image
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(0),
+                                      child: Image.asset(
+                                        _config.subscriptionBackgroundImage,
+                                        height: double.infinity,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(20),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      /// =========================
-                                      /// TOP IMAGE STACK SECTION
-                                      /// =========================
-                                      Expanded(
-                                        child: Stack(
-                                          clipBehavior: Clip.none,
-                                          alignment: Alignment.center,
-                                          children: [
-                                            // Main image
-                                            ClipRRect(
-                                              borderRadius: BorderRadius.circular(24),
-                                              child: Image.network(
-                                                'https://i.pinimg.com/236x/52/ca/34/52ca343608edcc44b480f8d6ac57355d.jpg',
-                                                height: double.infinity,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
 
-                                            // Avatar (left)
-                                            Positioned(
-                                              left: -50,
-                                              top: 20,
-                                              child: ClipOval(
-                                                child: Image.network(
-                                                  'https://i.pinimg.com/236x/52/ca/34/52ca343608edcc44b480f8d6ac57355d.jpg',
-                                                  height: 40,
-                                                  width: 40,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                            ),
-
-                                            // Play button
-                                            Positioned(
-                                              bottom: 30,
-                                              child: ClipRRect(
-                                                borderRadius: BorderRadius.circular(12),
-                                                child: Image.network(
-                                                  'https://www.kapitaler.com/images/playbutton.png',
-                                                  height: 60,
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                    // Play button
+                                    Positioned(
+                                      bottom: 20,
+                                      child: GestureDetector(
+                                        onTap: _handlePurchase,
+                                        child: Image.asset(
+                                          _config.subscriptionPriceTagImage,
+                                          height: 45,
                                         ),
                                       ),
-
-                                      const SizedBox(height: 20),
-
-                                      /// =========================
-                                      /// BOTTOM ACTION ROW
-                                      /// =========================
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () {
-                                              // TODO: Open Privacy Policy
-                                            },
-                                            child: const Text(
-                                              'Privacy Policy',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                decoration: TextDecoration.underline,
-                                              ),
-                                            ),
-                                          ),
-
-                                          const SizedBox(width: 20),
-
-                                          // Purchase button
-                                          GestureDetector(
-                                            onTap: _handlePurchase,
-                                            child: ClipRRect(
-                                              borderRadius: BorderRadius.circular(8),
-                                              child: Image.network(
-                                                'https://www.clker.com/cliparts/T/P/A/H/P/k/purchase-button.svg',
-                                                height: 50,
-                                                errorBuilder: (context, error, stackTrace) {
-                                                  return Container(
-                                                    padding: const EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 10,
-                                                    ),
-                                                    color: Colors.green,
-                                                    child: const Text(
-                                                      'Purchase',
-                                                      style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight: FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ),
-
-                                          const SizedBox(width: 20),
-
-                                          GestureDetector(
-                                            onTap: () {
-                                              // TODO: Open Terms of Service
-                                            },
-                                            child: const Text(
-                                              'Terms of Service',
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                decoration: TextDecoration.underline,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
 
+                              const SizedBox(height: 10),
+
                               /// =========================
-                              /// CLOSE BUTTON
+                              /// BOTTOM ACTION ROW
                               /// =========================
-                              Positioned(
-                                top: _config.subscriptionCloseButtonTop,
-                                left: _config.subscriptionCloseButtonRight,
-                                child: GestureDetector(
-                                  onTap: _closeSubscriptionPopup,
-                                  child: Image.asset(
-                                    _config.subscriptionCloseImage,
-                                    height: _config.subscriptionCloseButtonHeight,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return Container(
-                                        width: 40,
-                                        height: 40,
-                                        decoration: const BoxDecoration(
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 12),
+                                child: Wrap(
+                                  alignment: WrapAlignment.center,
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: 16,
+                                  runSpacing: 8,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        _openExternalLink(
+                                          label:
+                                              _config.subscriptionPrivacyText,
+                                          url: _config.subscriptionPrivacyUrl,
+                                        );
+                                      },
+                                      child: Text(
+                                        _config.subscriptionPrivacyText,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
                                           color: Colors.white,
-                                          shape: BoxShape.circle,
+                                          decoration: TextDecoration.underline,
                                         ),
-                                        child: const Icon(
-                                          Icons.close,
-                                          color: Colors.black87,
+                                      ),
+                                    ),
+
+                                    // Restore Purchase button
+                                    GestureDetector(
+                                      // onTap: ,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: Image.network(
+                                          'https://www.kapitaler.com/images/playbutton.png',
+                                          height: 40,
+                                          errorBuilder:
+                                              (context, error, stackTrace) {
+                                            return Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                horizontal: 12,
+                                                vertical: 10,
+                                              ),
+                                              decoration: BoxDecoration(
+                                                color: Colors.green,
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              child: const Text(
+                                                'Purchase',
+                                                style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            );
+                                          },
                                         ),
-                                      );
-                                    },
-                                  ),
+                                      ),
+                                    ),
+
+                                    GestureDetector(
+                                      onTap: () {
+                                        _openExternalLink(
+                                          label: _config.subscriptionTermsText,
+                                          url: _config.subscriptionTermsUrl,
+                                        );
+                                      },
+                                      child: Text(
+                                        _config.subscriptionTermsText,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
@@ -584,10 +588,9 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-
           ], // Stack children
         ), // Stack
       ), // Container
