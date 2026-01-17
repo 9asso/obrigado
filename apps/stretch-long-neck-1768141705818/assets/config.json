@@ -99,7 +99,7 @@
       }
     },
     "userInfo": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "close": "assets/pack/close.png",

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-01-17T00:02:37.542Z",
+  "overrides": {
+    "game": {
+      "url": "https://playhop.com/dist-app/485580?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "enabled": true
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": true
+      },
+      "userInfo": {
+        "enabled": false
+      },
+      "difficulty": {
+        "enabled": true
+      },
+      "moreGames": {
+        "enabled": false
+      },
+      "splash": {
+        "enabled": true
+      }
+    }
+  }
+}
