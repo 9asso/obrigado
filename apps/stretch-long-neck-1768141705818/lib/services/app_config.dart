@@ -520,15 +520,12 @@ class AppConfig {
   String get subscriptionBackgroundImage =>
       _config['subscription']['popup']['images']['background'] ??
       'assets/pack/noadspopup.png';
-  String get subscriptionIconImage =>
-      _config['subscription']['popup']['images']['icon'] ??
-      'assets/pack/noadsicon.png';
   String get subscriptionPriceTagImage =>
       _config['subscription']['popup']['images']['priceTag'] ??
       'assets/pack/pricetag.png';
   String get subscriptionCloseImage =>
       _config['subscription']['popup']['images']['close'] ??
-      'assets/pack/noadsclose.png';
+      'assets/pack/close.png';
 
   double get subscriptionIconHeight =>
       (_config['subscription']['popup']['content']['iconHeight'] ?? 120)

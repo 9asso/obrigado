@@ -258,6 +258,12 @@
       "footer": {
         "restore": {
           "image": "assets/pack/restore.png"
+        },
+        "terms": {
+          "url": "https://www.apple.com/legal/internet-services/itunes/"
+        },
+        "privacy": {
+          "url": "https://chatgpt.com/?temporary-chat=true"
         }
       }
     },
