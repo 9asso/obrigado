@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-01-17T20:57:32.715Z",
+  "overrides": {
+    "game": {
+      "enabled": true
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": false
+      },
+      "userInfo": {
+        "enabled": false
+      },
+      "difficulty": {
+        "enabled": true
+      },
+      "moreGames": {
+        "enabled": true
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": true,
+      "android": {
+        "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
+        "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
+      },
+      "ios": {
+        "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
+        "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910"
+      }
+    },
+    "subscription": {
+      "enabled": true,
+      "productIds": {
+        "android": "subscription_no_ads",
+        "ios": "subscription_no_ads"
+      }
+    }
+  }
+}
