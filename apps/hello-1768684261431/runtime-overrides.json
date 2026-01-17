@@ -1,8 +1,9 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-17T21:11:01.577Z",
+  "configVersion": "2026-01-17T21:12:16.685Z",
   "overrides": {
     "game": {
+      "url": "https://playhop.com/dist-app/481662?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
       "enabled": true
     },
     "screens": {
@@ -20,6 +21,9 @@
       },
       "moreGames": {
         "enabled": true
+      },
+      "splash": {
+        "enabled": true
       }
     },
     "admob": {
@@ -27,11 +31,13 @@
       "testMode": true,
       "android": {
         "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-        "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
+        "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712",
+        "appOpenAdUnitId": "ca-app-pub-3940256099942544/3419835294"
       },
       "ios": {
         "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-        "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910"
+        "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910",
+        "appOpenAdUnitId": "ca-app-pub-3940256099942544/5662855259"
       }
     },
     "subscription": {
@@ -39,6 +45,13 @@
       "productIds": {
         "android": "subscription_no_ads",
         "ios": "subscription_no_ads"
+      },
+      "popup": {
+        "footer": {
+          "terms": {
+            "url": "https://www.apple.com/legal/internet-services/itunes/"
+          }
+        }
       }
     }
   }
