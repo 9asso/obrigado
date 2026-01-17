@@ -223,7 +223,7 @@
           "shadowBlurRadius": 3
         },
         "subtitle": {
-          "text": "Enjoy an uninterrupted experience!",
+          "text": "",
           "fontSize": 16,
           "fontWeight": "w600",
           "color": "#069f5d",
