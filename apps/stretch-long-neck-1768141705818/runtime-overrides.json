@@ -1,10 +1,13 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-17T20:40:07.529Z",
+  "configVersion": "2026-01-17T23:35:51.888Z",
   "overrides": {
     "game": {
       "url": "https://playhop.com/dist-app/485580?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
-      "enabled": true
+      "enabled": true,
+      "interstitial": {
+        "interval": 70
+      }
     },
     "screens": {
       "home": {
@@ -28,20 +31,10 @@
     },
     "admob": {
       "enabled": true,
-      "testMode": false,
-      "android": {
-        "bannerAdUnitId": "ca-app-pub-5080833301669041/3081108188",
-        "interstitialAdUnitId": "ca-app-pub-5080833301669041/7174419954",
-        "appOpenAdUnitId": "ca-app-pub-5080833301669041/3997176985"
-      },
-      "ios": {
-        "bannerAdUnitId": "ca-app-pub-5080833301669041/3081108188",
-        "interstitialAdUnitId": "ca-app-pub-5080833301669041/7174419954",
-        "appOpenAdUnitId": "ca-app-pub-5080833301669041/3997176985"
-      }
+      "testMode": false
     },
     "subscription": {
-      "enabled": true,
+      "enabled": false,
       "productIds": {
         "android": "subscription_no_ads",
         "ios": "subscription_no_ads"

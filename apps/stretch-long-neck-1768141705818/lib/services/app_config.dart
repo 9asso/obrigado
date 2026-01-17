@@ -125,6 +125,21 @@ class AppConfig {
             : <String, dynamic>{};
         (_config['game'] as Map<String, dynamic>)['enabled'] = enabled;
       }
+
+      final interstitial = game['interstitial'];
+      if (interstitial is Map) {
+        final interval = interstitial['interval'];
+        if (interval is int && interval > 0) {
+          _config['game'] = (_config['game'] is Map<String, dynamic>)
+              ? _config['game']
+              : <String, dynamic>{};
+          final gameConfig = _config['game'] as Map<String, dynamic>;
+          gameConfig['interstitial'] = (gameConfig['interstitial'] is Map<String, dynamic>)
+              ? gameConfig['interstitial']
+              : <String, dynamic>{};
+          (gameConfig['interstitial'] as Map<String, dynamic>)['interval'] = interval;
+        }
+      }
     }
 
     final screens = overrides['screens'];
