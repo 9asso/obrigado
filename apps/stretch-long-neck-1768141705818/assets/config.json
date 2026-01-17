@@ -244,7 +244,7 @@
         "right": -10,
         "height": 40
       },
-      "footer": {
+      "`footer`": {
         "terms": {
           "url": "https://www.apple.com/legal/internet-services/itunes/"
         },
@@ -253,6 +253,11 @@
         },
         "restore": {
           "image": "assets/pack/chatgpt_image_jan_17_2026_02_33_06_am.png"
+        }
+      },
+      "footer": {
+        "restore": {
+          "image": "assets/pack/restore.png"
         }
       }
     },

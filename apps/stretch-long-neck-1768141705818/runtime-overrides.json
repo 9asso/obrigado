@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-17T05:44:26.798Z",
+  "configVersion": "2026-01-17T17:26:20.803Z",
   "overrides": {
     "game": {
       "url": "https://playhop.com/dist-app/485580?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
@@ -45,16 +45,6 @@
       "productIds": {
         "android": "subscription_no_ads",
         "ios": "subscription_no_ads"
-      },
-      "popup": {
-        "footer": {
-          "privacy": {
-            "url": "https://www.google.com/"
-          },
-          "terms": {
-            "url": "https://www.apple.com/legal/internet-services/itunes/"
-          }
-        }
       }
     }
   }
