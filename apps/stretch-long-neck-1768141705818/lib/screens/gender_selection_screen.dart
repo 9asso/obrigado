@@ -192,12 +192,13 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 15),
                   // Title at top
                   Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
                       // width: double.infinity,
-                      height: 100,
+                      height: 110,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
@@ -399,7 +400,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
                     padding: EdgeInsets.only(top: 8),
                     child: Icon(
                       Icons.check_circle,
-                      color: Color(0xFF63397e),
+                      color: Color.fromARGB(255, 255, 255, 255),
                       size: 30,
                     ))
               else
@@ -407,7 +408,7 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
                   padding: EdgeInsets.only(top: 8),
                   child: Icon(
                     Icons.circle_sharp,
-                    color: Color.fromRGBO(100, 57, 126, 0.1),
+                    color: Color.fromRGBO(255, 255, 255, 0.323),
                     size: 30,
                   ),
                 ),

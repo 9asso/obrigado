@@ -159,12 +159,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 15),
                   // Game Name/Logo at top
                   Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
                       // width: double.infinity,
-                      height: 100,
+                      height: 110,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(
@@ -207,15 +208,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         ),
                       ),
                       child: SizedBox(
-                        height: 100,
+                        height: 80,
                         child: Center(
                           child: Image.asset(
                             _config.homePlayImage,
-                            height: 100,
+                            height: 80,
                             errorBuilder: (context, error, stackTrace) {
                               return const Icon(
                                 Icons.play_arrow,
-                                size: 100,
+                                size: 80,
                                 color: Colors.white,
                               );
                             },

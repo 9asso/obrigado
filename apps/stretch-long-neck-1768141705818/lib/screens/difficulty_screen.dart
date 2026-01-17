@@ -234,11 +234,12 @@ class _DifficultyScreenState extends State<DifficultyScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 15),
                   // Title at top
                   Padding(
                     padding: const EdgeInsets.only(top: 0),
                     child: SizedBox(
-                      height: 100,
+                      height: 110,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.asset(

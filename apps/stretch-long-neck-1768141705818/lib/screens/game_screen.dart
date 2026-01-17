@@ -495,7 +495,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                   child: BackdropFilter(
                     filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                     child: Container(
-                      color: Colors.black.withOpacity(0.75),
+                      color: Colors.black.withOpacity(0.25),
                     ),
                   ),
                 ),
