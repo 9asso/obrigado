@@ -19,6 +19,9 @@ class IAPService {
   DateTime? _subscriptionExpiryDate;
   String? _activeSubscriptionType;
 
+  bool _restoreInProgress = false;
+  Completer<bool>? _restoreCompleter;
+
   // Keys for SharedPreferences
   static const String _keyHasSubscription = 'has_subscription';
   static const String _keySubscriptionExpiry = 'subscription_expiry';
@@ -153,7 +156,7 @@ class IAPService {
     }
   }
 
-  void _onPurchaseUpdate(List<PurchaseDetails> purchaseDetailsList) {
+  Future<void> _onPurchaseUpdate(List<PurchaseDetails> purchaseDetailsList) async {
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       print('Purchase status: ${purchaseDetails.status} for ${purchaseDetails.productID}');
       
@@ -162,13 +165,20 @@ class IAPService {
       } else {
         if (purchaseDetails.status == PurchaseStatus.error) {
           _handleError(purchaseDetails.error!);
+          if (_restoreInProgress && _restoreCompleter != null && !_restoreCompleter!.isCompleted) {
+            _restoreCompleter!.complete(false);
+          }
         } else if (purchaseDetails.status == PurchaseStatus.purchased ||
                    purchaseDetails.status == PurchaseStatus.restored) {
-          _verifyPurchase(purchaseDetails);
+          await _verifyPurchase(purchaseDetails);
+
+          if (_restoreInProgress && _hasActiveSubscription && _restoreCompleter != null && !_restoreCompleter!.isCompleted) {
+            _restoreCompleter!.complete(true);
+          }
         }
 
         if (purchaseDetails.pendingCompletePurchase) {
-          _iap.completePurchase(purchaseDetails);
+          await _iap.completePurchase(purchaseDetails);
         }
       }
     }
@@ -308,13 +318,29 @@ class IAPService {
     }
 
     try {
+      // Make restore reliable: wait for purchaseStream to deliver restored purchases.
+      _restoreInProgress = true;
+      if (_restoreCompleter != null && !_restoreCompleter!.isCompleted) {
+        _restoreCompleter!.complete(false);
+      }
+      _restoreCompleter = Completer<bool>();
+
       await _iap.restorePurchases();
-      if (_hasActiveSubscription) {
+
+      final restored = await _restoreCompleter!.future.timeout(
+        const Duration(seconds: 10),
+        onTimeout: () => false,
+      );
+
+      _restoreInProgress = false;
+
+      if (restored || _hasActiveSubscription) {
         onSuccess();
       } else {
         onError('No active subscriptions found');
       }
     } catch (e) {
+      _restoreInProgress = false;
       onError('Restore error: $e');
     }
   }

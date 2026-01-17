@@ -191,6 +191,67 @@ class _DifficultyScreenState extends State<DifficultyScreen>
     }
   }
 
+  Future<void> _handleRestorePurchase() async {
+    try {
+      final iapService = await IAPService.getInstance();
+
+      if (mounted) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 15),
+                  Text(
+                    'Restoring purchases...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+
+      await iapService.restorePurchases(
+        onSuccess: () {
+          if (!mounted) return;
+          Navigator.of(context).pop(); // Close loading dialog
+          _closeSubscriptionPopup();
+          _showSuccessMessage('Purchases restored! Enjoy ad-free experience.');
+          setState(() {
+            _isBannerAdLoaded = false;
+          });
+          _bannerAd?.dispose();
+          _bannerAd = null;
+        },
+        onError: (error) {
+          if (!mounted) return;
+          Navigator.of(context).pop(); // Close loading dialog
+          _showErrorMessage(error);
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        Navigator.of(context).pop(); // Close loading dialog
+        _showErrorMessage('Failed to restore purchases: $e');
+      }
+    }
+  }
+
   void _showSuccessMessage(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -531,33 +592,62 @@ class _DifficultyScreenState extends State<DifficultyScreen>
 
                                     // Restore Purchase button
                                     GestureDetector(
-                                      // onTap: ,
+                                      onTap: _handleRestorePurchase,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(8),
-                                        child: Image.network(
-                                          'https://www.kapitaler.com/images/playbutton.png',
-                                          height: 40,
-                                          errorBuilder:
-                                              (context, error, stackTrace) {
-                                            return Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                horizontal: 12,
-                                                vertical: 10,
-                                              ),
-                                              decoration: BoxDecoration(
-                                                color: Colors.green,
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: const Text(
-                                                'Purchase',
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
+                                        child: Builder(
+                                          builder: (context) {
+                                            final restoreImage = _config
+                                                .subscriptionRestorePurchaseImage
+                                                .trim();
+                                            const restoreHeight = 40.0;
+
+                                            Widget fallback() {
+                                              return Container(
+                                                padding: const EdgeInsets.symmetric(
+                                                  horizontal: 12,
+                                                  vertical: 10,
                                                 ),
-                                              ),
-                                            );
+                                                decoration: BoxDecoration(
+                                                  color: Colors.green,
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                child: const Text(
+                                                  'Restore Purchase',
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+
+                                            if (restoreImage.isEmpty) {
+                                              return fallback();
+                                            }
+
+                                            final isNetwork =
+                                                restoreImage.startsWith('http://') ||
+                                                    restoreImage.startsWith('https://');
+
+                                            return isNetwork
+                                                ? Image.network(
+                                                    restoreImage,
+                                                    height: restoreHeight,
+                                                    errorBuilder: (context, error,
+                                                        stackTrace) {
+                                                      return fallback();
+                                                    },
+                                                  )
+                                                : Image.asset(
+                                                    restoreImage,
+                                                    height: restoreHeight,
+                                                    errorBuilder: (context, error,
+                                                        stackTrace) {
+                                                      return fallback();
+                                                    },
+                                                  );
                                           },
                                         ),
                                       ),

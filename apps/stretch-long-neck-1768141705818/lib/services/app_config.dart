@@ -612,10 +612,7 @@ class AppConfig {
 
   String get subscriptionRestorePurchaseImage =>
       _config['subscription']['popup']['footer']?['restore']?['image'] ??
-      'assets/pack/restore.png';
-  double get subscriptionRestorePurchaseHeight =>
-      (_config['subscription']['popup']['footer']?['restore']?['height'] ?? 28)
-          .toDouble();
+      '';
 
   double get subscriptionFooterTopPadding =>
       (_config['subscription']['popup']['footer']?['style']?['topPadding'] ??

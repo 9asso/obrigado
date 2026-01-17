@@ -250,6 +250,9 @@
         },
         "privacy": {
           "url": "https://www.google.com/"
+        },
+        "restore": {
+          "image": "assets/pack/chatgpt_image_jan_17_2026_02_33_06_am.png"
         }
       }
     },
