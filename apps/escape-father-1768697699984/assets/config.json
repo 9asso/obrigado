@@ -259,8 +259,8 @@
   },
   "theme": {
     "primaryColor": "#ffffff",
-    "accentColor": "#EC4899",
-    "errorColor": "#F44336"
+    "accentColor": "#ffffff",
+    "errorColor": "#ec2618"
   },
   "animation": {
     "buttonPressDuration": 150,
