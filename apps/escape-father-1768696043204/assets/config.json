@@ -199,8 +199,8 @@
       "lifetime"
     ],
     "productIds": {
-      "android": "subscription_no_ads",
-      "ios": "subscription_no_ads"
+      "android": "com.week.santalevels",
+      "ios": "com.week.santalevels"
     },
     "popup": {
       "barrierDismissible": false,
@@ -215,7 +215,7 @@
         "enabled": true,
         "privacy": {
           "text": "Privacy Policy",
-          "url": ""
+          "url": "https://studiokoden.github.io/privacy-policy.html"
         },
         "terms": {
           "text": "Terms of Use",
@@ -241,9 +241,9 @@
           "shadowBlurRadius": 1
         },
         "price": {
-          "text": "$7.99",
-          "fontSize": 24,
-          "fontWeight": "bold",
+          "text": "",
+          "fontSize": null,
+          "fontWeight": "",
           "color": "#FFFFFF",
           "shadowColor": "#00000073",
           "shadowBlurRadius": 5
@@ -254,7 +254,8 @@
         "right": -10,
         "height": 40
       }
-    }
+    },
+    "type": "weekly"
   },
   "theme": {
     "primaryColor": "#6366F1",
