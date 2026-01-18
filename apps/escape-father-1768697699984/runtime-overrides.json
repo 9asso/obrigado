@@ -1,9 +1,12 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-18T00:55:00.095Z",
+  "configVersion": "2026-01-18T01:04:00.207Z",
   "overrides": {
     "game": {
-      "enabled": true
+      "enabled": true,
+      "interstitial": {
+        "interval": 90
+      }
     },
     "screens": {
       "home": {
@@ -20,6 +23,9 @@
       },
       "moreGames": {
         "enabled": true
+      },
+      "splash": {
+        "enabled": true
       }
     },
     "admob": {
@@ -31,6 +37,13 @@
       "productIds": {
         "android": "subscription_no_ads",
         "ios": "subscription_no_ads"
+      },
+      "popup": {
+        "footer": {
+          "terms": {
+            "url": "https://www.apple.com/legal/internet-services/itunes/"
+          }
+        }
       }
     }
   }
