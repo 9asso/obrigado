@@ -4,8 +4,8 @@
     "icon": "assets/pack/appicon.png",
     "packageName": "com.santescape.christmas",
     "identifierId": "com.santescape.christmas",
-    "version": "1.5",
-    "buildNumber": "1.5",
+    "version": "1.5.0",
+    "buildNumber": "1.5.0",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01

@@ -1,6 +1,6 @@
 name: christmas
 description: Escape Father Flutter application
-version: 1.5+1.5
+version: 1.5.0+1.5.0
 environment:
   sdk: ">=3.0.0 <4.0.0"
 dependencies:
