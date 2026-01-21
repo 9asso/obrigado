@@ -99,7 +99,7 @@
       }
     },
     "userInfo": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "close": "assets/pack/close.png",
@@ -151,7 +151,7 @@
       "titleImage": "assets/pack/chatgpt_image_jan_20_2026_05_47_42_pm_02.png"
     },
     "moreGames": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "header": "assets/pack/moregames.png",
@@ -241,7 +241,7 @@
           "shadowBlurRadius": 1
         },
         "price": {
-          "text": "$7.99",
+          "text": "$5.99",
           "fontSize": 24,
           "fontWeight": "bold",
           "color": "#FFFFFF",
@@ -254,7 +254,8 @@
         "right": -10,
         "height": 40
       }
-    }
+    },
+    "type": "weekly"
   },
   "theme": {
     "primaryColor": "#d9d9d9",
