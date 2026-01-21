@@ -68,7 +68,7 @@
           "message": "Check out this amazing game!"
         },
         "moreGames": {
-          "enabled": true,
+          "enabled": false,
           "image": "assets/pack/more.png",
           "label": "More Games"
         },
@@ -85,7 +85,7 @@
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -127,7 +127,7 @@
       }
     },
     "difficulty": {
-      "enabled": true,
+      "enabled": false,
       "continueButtonImage": "assets/pack/continue.png",
       "images": {
         "background": "assets/pack/bg.png",
@@ -147,10 +147,11 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/chatgpt_image_jan_19_2026_09_56_18_pm_03.png"
     },
     "moreGames": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "header": "assets/pack/moregames.png",
@@ -214,7 +215,7 @@
         "enabled": true,
         "privacy": {
           "text": "Privacy Policy",
-          "url": ""
+          "url": "https://kararbgames.web.app/privacypolicy.html"
         },
         "terms": {
           "text": "Terms of Use",
@@ -253,12 +254,13 @@
         "right": -10,
         "height": 40
       }
-    }
+    },
+    "type": "weekly"
   },
   "theme": {
-    "primaryColor": "#6366F1",
-    "accentColor": "#EC4899",
-    "errorColor": "#F44336"
+    "primaryColor": "#e5e5f0",
+    "accentColor": "#1a1417",
+    "errorColor": "#ee493a"
   },
   "animation": {
     "buttonPressDuration": 150,
