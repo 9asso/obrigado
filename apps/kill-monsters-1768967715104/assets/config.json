@@ -68,7 +68,7 @@
           "message": "Check out this amazing game!"
         },
         "moreGames": {
-          "enabled": true,
+          "enabled": false,
           "image": "assets/pack/more.png",
           "label": "More Games"
         },
