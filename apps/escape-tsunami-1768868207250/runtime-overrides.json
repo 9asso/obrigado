@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-21T05:13:02.147Z",
+  "configVersion": "2026-01-21T05:21:30.648Z",
   "overrides": {
     "game": {
       "enabled": true,
@@ -19,7 +19,7 @@
         "enabled": false
       },
       "difficulty": {
-        "enabled": false
+        "enabled": true
       },
       "moreGames": {
         "enabled": false

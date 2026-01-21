@@ -127,7 +127,7 @@
       }
     },
     "difficulty": {
-      "enabled": false,
+      "enabled": true,
       "continueButtonImage": "assets/pack/continue.png",
       "images": {
         "background": "assets/pack/bg.png",
