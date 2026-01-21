@@ -34,7 +34,7 @@
     "url": "https://playhop.com/dist-app/480729?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 15
+      "duration": 30
     },
     "interstitial": {
       "enabled": true,
@@ -85,7 +85,7 @@
       }
     },
     "genderSelection": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -99,7 +99,7 @@
       }
     },
     "userInfo": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "close": "assets/pack/close.png",
@@ -258,8 +258,8 @@
     "type": "weekly"
   },
   "theme": {
-    "primaryColor": "#d9d9d9",
-    "accentColor": "#EC4899",
+    "primaryColor": "#fec211",
+    "accentColor": "#fec211",
     "errorColor": "#F44336"
   },
   "animation": {
