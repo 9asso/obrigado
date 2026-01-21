@@ -85,7 +85,7 @@
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -147,7 +147,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/chatgpt_image_jan_20_2026_05_47_42_pm_02.png"
     },
     "moreGames": {
       "enabled": true,
@@ -256,7 +257,7 @@
     }
   },
   "theme": {
-    "primaryColor": "#6366F1",
+    "primaryColor": "#d9d9d9",
     "accentColor": "#EC4899",
     "errorColor": "#F44336"
   },
