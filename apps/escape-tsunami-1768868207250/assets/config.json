@@ -258,7 +258,7 @@
     "type": "weekly"
   },
   "theme": {
-    "primaryColor": "#020208",
+    "primaryColor": "#e6e6e6",
     "accentColor": "#1a1417",
     "errorColor": "#ee493a"
   },
