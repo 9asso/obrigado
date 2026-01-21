@@ -31,7 +31,7 @@
   },
   "game": {
     "enabled": true,
-    "url": "",
+    "url": "https://playhop.com/dist-app/487076?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 15
@@ -244,7 +244,7 @@
           "text": "$7.99",
           "fontSize": 24,
           "fontWeight": "bold",
-          "color": "#FFFFFF",
+          "color": "#140606",
           "shadowColor": "#00000073",
           "shadowBlurRadius": 5
         }
@@ -258,7 +258,7 @@
     "type": "weekly"
   },
   "theme": {
-    "primaryColor": "#e5e5f0",
+    "primaryColor": "#020208",
     "accentColor": "#1a1417",
     "errorColor": "#ee493a"
   },
