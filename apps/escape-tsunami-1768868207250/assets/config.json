@@ -17,16 +17,16 @@
     "enabled": true,
     "testMode": true,
     "android": {
-      "appId": "ca-app-pub-3940256099942544~3347511713",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712",
-      "appOpenAdUnitId": "ca-app-pub-3940256099942544/3419835294"
+      "appId": "ca-app-pub-5080833301669041~9172451774",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/5545048016",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/2089729179",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/4231966345"
     },
     "ios": {
-      "appId": "ca-app-pub-3940256099942544~1458002511",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910",
-      "appOpenAdUnitId": "ca-app-pub-3940256099942544/5662855259"
+      "appId": "ca-app-pub-5080833301669041~9172451774",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/5545048016",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/2089729179",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/4231966345"
     }
   },
   "game": {
