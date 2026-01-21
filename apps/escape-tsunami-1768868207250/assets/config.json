@@ -241,7 +241,7 @@
           "shadowBlurRadius": 1
         },
         "price": {
-          "text": "$7.99",
+          "text": "",
           "fontSize": 24,
           "fontWeight": "bold",
           "color": "#140606",
