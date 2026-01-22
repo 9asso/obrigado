@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-01-22T05:13:27.701Z",
+  "overrides": {
+    "game": {
+      "enabled": true
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": false
+      },
+      "userInfo": {
+        "enabled": false
+      },
+      "difficulty": {
+        "enabled": true
+      },
+      "moreGames": {
+        "enabled": true
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": true
+    },
+    "subscription": {
+      "enabled": true,
+      "productIds": {
+        "android": "subscription_no_ads",
+        "ios": "subscription_no_ads"
+      }
+    }
+  }
+}
