@@ -402,6 +402,13 @@ class AppConfig {
   String get genderFallbackTitle =>
       _config['screens']['genderSelection']['fallbackText']['title'] ??
       'Boy or Girl';
+  
+  String get genderSelectionIndicatorColor =>
+      _config['screens']['genderSelection']['selectionIndicatorColor'] ??
+      '#63397e';
+  
+  double get genderSelectionIndicatorOpacity =>
+      (_config['screens']['genderSelection']['selectionIndicatorOpacity'] ?? 1.0).toDouble();
 
   // User Info
   String get userInfoBackgroundImage =>

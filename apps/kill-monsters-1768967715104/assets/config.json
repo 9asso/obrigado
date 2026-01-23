@@ -102,7 +102,9 @@
       },
       "fallbackText": {
         "title": "Boy or Girl"
-      }
+      },
+      "selectionIndicatorColor": "#ffffff",
+      "selectionIndicatorOpacity": 1
     },
     "userInfo": {
       "enabled": false,
@@ -204,7 +206,7 @@
     }
   },
   "subscription": {
-    "enabled": false,
+    "enabled": true,
     "types": [
       "weekly",
       "monthly",

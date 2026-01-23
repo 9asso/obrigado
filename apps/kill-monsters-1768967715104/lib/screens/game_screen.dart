@@ -190,10 +190,15 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       ..addJavaScriptChannel(
         'FlutterSubscription',
         onMessageReceived: (JavaScriptMessage message) {
-          if (message.message == 'showSubscription' && _config.subscriptionEnabled) {
-            setState(() {
-              _showSubscriptionPopup = true;
-            });
+          if (message.message == 'showSubscription') {
+            if (_config.subscriptionEnabled) {
+              setState(() {
+                _showSubscriptionPopup = true;
+              });
+            } else {
+              // Show interstitial ad if subscription is disabled
+              _showInterstitialAd();
+            }
           }
         },
       )

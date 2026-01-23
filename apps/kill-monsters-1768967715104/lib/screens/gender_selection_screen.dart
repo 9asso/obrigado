@@ -396,11 +396,11 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
               ),
               const SizedBox(height: 0),
               if (isSelected)
-                const Padding(
+                Padding(
                     padding: EdgeInsets.only(top: 8),
                     child: Icon(
                       Icons.check_circle,
-                      color: Color(0xFF63397e),
+                      color: Color(int.parse(_config.genderSelectionIndicatorColor.replaceFirst('#', '0xFF'))).withOpacity(_config.genderSelectionIndicatorOpacity),
                       size: 30,
                     ))
               else
