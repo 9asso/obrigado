@@ -60,6 +60,9 @@
   "screens": {
     "home": {
       "enabled": true,
+      "interstitial": {
+        "enabled": false
+      },
       "buttons": {
         "share": {
           "enabled": true,
@@ -86,6 +89,9 @@
     },
     "genderSelection": {
       "enabled": false,
+      "interstitial": {
+        "enabled": true
+      },
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -100,6 +106,9 @@
     },
     "userInfo": {
       "enabled": false,
+      "interstitial": {
+        "enabled": false
+      },
       "images": {
         "background": "assets/pack/bg.png",
         "close": "assets/pack/close.png",
@@ -128,6 +137,9 @@
     },
     "difficulty": {
       "enabled": false,
+      "interstitial": {
+        "enabled": false
+      },
       "continueButtonImage": "assets/pack/continue.png",
       "images": {
         "background": "assets/pack/bg.png",
@@ -192,7 +204,7 @@
     }
   },
   "subscription": {
-    "enabled": true,
+    "enabled": false,
     "types": [
       "weekly",
       "monthly",

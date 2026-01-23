@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'user_info_screen.dart';
 import 'difficulty_screen.dart';
+import 'game_screen.dart';
 import '../utils/page_transition.dart';
 import '../services/app_config.dart';
 import '../services/admob_service.dart';
@@ -72,8 +73,9 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
   }
 
   void _navigateToNextScreen() async {
-    // Show loading dialog
-    if (_config.admobEnabled) {
+    // Check if interstitial should be shown
+    if (_config.genderInterstitialEnabled && _config.admobEnabled && AdMobService.isSupported) {
+      // Show loading dialog
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -105,33 +107,24 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
         },
       );
 
-      // Show interstitial ad
-        if (AdMobService.isSupported) {
-          final adMobService = await AdMobService.getInstance();
-          await adMobService.showInterstitialAd(
+      final adMobService = await AdMobService.getInstance();
+      await adMobService.showInterstitialAd(
         onAdDismissed: () {
-          // Close loading dialog
           if (mounted) Navigator.of(context).pop();
-          // Navigate to next screen
           _proceedToNextScreen();
         },
         onAdFailedToShow: () {
-          // Close loading dialog
           if (mounted) Navigator.of(context).pop();
-          // Navigate to next screen anyway
           _proceedToNextScreen();
         },
-          );
-        } else {
-          _proceedToNextScreen();
-        }
+      );
     } else {
       _proceedToNextScreen();
     }
   }
 
   void _proceedToNextScreen() {
-    // Flow: userInfo -> difficulty
+    // Flow: userInfo -> difficulty -> game
     if (_config.isScreenEnabled('userInfo')) {
       Navigator.push(
         context,
@@ -151,6 +144,14 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
             name: 'Player',
             email: 'player@game.com',
           ),
+        ),
+      );
+    } else if (_config.gameEnabled) {
+      // Skip both user info and difficulty, go directly to game
+      Navigator.push(
+        context,
+        FadePageRoute(
+          page: const GameScreen(),
         ),
       );
     }

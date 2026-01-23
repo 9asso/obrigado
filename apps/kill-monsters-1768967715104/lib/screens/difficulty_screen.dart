@@ -272,6 +272,66 @@ class _DifficultyScreenState extends State<DifficultyScreen>
     );
   }
 
+  void _navigateToGame() async {
+    // Check if interstitial should be shown
+    if (_config.difficultyInterstitialEnabled && _config.admobEnabled && AdMobService.isSupported) {
+      // Show loading dialog
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 15),
+                  Text(
+                    'Loading Ad...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+
+      final adMobService = await AdMobService.getInstance();
+      await adMobService.showInterstitialAd(
+        onAdDismissed: () {
+          if (mounted) Navigator.of(context).pop();
+          _proceedToGame();
+        },
+        onAdFailedToShow: () {
+          if (mounted) Navigator.of(context).pop();
+          _proceedToGame();
+        },
+      );
+    } else {
+      _proceedToGame();
+    }
+  }
+
+  void _proceedToGame() {
+    Navigator.push(
+      context,
+      FadePageRoute(
+        page: const GameScreen(),
+      ),
+    );
+  }
+
   Future<void> _openExternalLink({
     required String label,
     required String url,
@@ -433,12 +493,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
                     onTapUp: (_) {
                       _continueButtonController.reverse();
                       if (_config.gameEnabled) {
-                        Navigator.push(
-                          context,
-                          FadePageRoute(
-                            page: const GameScreen(),
-                          ),
-                        );
+                        _navigateToGame();
                       }
                     },
                     onTapCancel: () => _continueButtonController.reverse(),

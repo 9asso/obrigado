@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/app_config.dart';
 import '../services/admob_service.dart';
+import '../services/iap_service.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -29,6 +31,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Timer? _loadingTimeoutTimer;
   int _countdown = 0;
   bool _showCountdown = false;
+  bool _showSubscriptionPopup = false;
 
   @override
   void initState() {
@@ -184,6 +187,16 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       ..setBackgroundColor(Colors.black)
       ..setUserAgent('Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36')
       ..enableZoom(false)
+      ..addJavaScriptChannel(
+        'FlutterSubscription',
+        onMessageReceived: (JavaScriptMessage message) {
+          if (message.message == 'showSubscription' && _config.subscriptionEnabled) {
+            setState(() {
+              _showSubscriptionPopup = true;
+            });
+          }
+        },
+      )
       ..setOnConsoleMessage((JavaScriptConsoleMessage message) {
         print('🌐 WebView Console: ${message.message}');
       })
@@ -201,15 +214,15 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               return NavigationDecision.prevent;
             }
             // Allow all other navigation requests (including redirects)
-            print('🔗 Navigation requested: ${request.url}');
+            // print('🔗 Navigation requested: ${request.url}');
             return NavigationDecision.navigate;
           },
           onPageStarted: (String url) {
             // Log page to history
             _pageHistory.add(url);
-            print('📄 Page started: $url');
-            print('📚 History count: ${_pageHistory.length}');
-            print('📋 Full history: $_pageHistory');
+            // print('📄 Page started: $url');
+            // print('📚 History count: ${_pageHistory.length}');
+            // print('📋 Full history: $_pageHistory');
             
             // setState(() {
             //   _isLoading = true;
@@ -232,7 +245,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             }
           },
           onPageFinished: (String url) {
-            print('✅ Page finished loading: $url');
+            // print('✅ Page finished loading: $url');
             
             // Inject JavaScript to remove unwanted modals
             _injectModalBlocker();
@@ -261,106 +274,148 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   }
 
   void _injectModalBlocker() {
-    // Inject JavaScript to automatically dismiss the modal (mobile version)
+    // Inject JavaScript to hide payment modal content only
     final script = '''
       (function() {
         const processedModals = new Set();
         
-        function closeModal() {
-          let foundNewModal = false;
-          
-          // Method 1: Click on backdrop/overlay (only if visible and not GDPR)
-          const overlays = document.querySelectorAll('.modal-wrapper, [class*="overlay"], [class*="backdrop"]');
-          overlays.forEach(overlay => {
-            // Skip GDPR overlay and already processed ones
-            if (overlay.classList.contains('gdpr-overlay')) return;
+        function forceHideElement(element, reason) {
+          try {
+            element.style.setProperty('display', 'none', 'important');
+            element.style.setProperty('visibility', 'hidden', 'important');
+            element.style.setProperty('opacity', '0', 'important');
+            element.style.setProperty('max-height', '0', 'important');
+            element.style.setProperty('overflow', 'hidden', 'important');
+            element.style.setProperty('pointer-events', 'none', 'important');
+            element.setAttribute('hidden', 'true');
+            element.setAttribute('aria-hidden', 'true');
             
-            // Only process if visible
-            const isVisible = overlay.offsetParent !== null && 
-                            window.getComputedStyle(overlay).display !== 'none' &&
-                            window.getComputedStyle(overlay).visibility !== 'hidden';
-            
-            if (isVisible && !processedModals.has(overlay)) {
-              console.log('🖱️ Clicking overlay:', overlay.className);
-              overlay.click();
-              processedModals.add(overlay);
-              foundNewModal = true;
-            }
-          });
-          
-          // Method 2: Find and click close button
-          const closeButtons = document.querySelectorAll('.close-button, .close-button_type_popup, [aria-label*="close" i], [aria-label*="закрыть" i]');
-          closeButtons.forEach(button => {
-            const isVisible = button.offsetParent !== null;
-            if (isVisible && !processedModals.has(button)) {
-              console.log('🖱️ Clicking close button:', button.className);
-              button.click();
-              processedModals.add(button);
-              foundNewModal = true;
-            }
-          });
-          
-          // Method 3: Simulate swipe down on payment modals
-          const modals = document.querySelectorAll('[data-testid="in-app-form"], .inAppForm, [class*="PaymentsModal"]');
-          modals.forEach(modal => {
-            const isVisible = modal.offsetParent !== null;
-            if (isVisible && !processedModals.has(modal)) {
-              const modalContent = modal.querySelector('[class*="modal"]') || modal;
-              
-              const touchStart = new TouchEvent('touchstart', {
-                touches: [new Touch({
-                  identifier: Date.now(),
-                  target: modalContent,
-                  clientX: 100,
-                  clientY: 50,
-                  pageX: 100,
-                  pageY: 50
-                })]
-              });
-              
-              const touchEnd = new TouchEvent('touchend', {
-                changedTouches: [new Touch({
-                  identifier: Date.now(),
-                  target: modalContent,
-                  clientX: 100,
-                  clientY: 300,
-                  pageX: 100,
-                  pageY: 300
-                })]
-              });
-              
-              console.log('👆 Simulating swipe down on payment modal');
-              modalContent.dispatchEvent(touchStart);
-              setTimeout(() => modalContent.dispatchEvent(touchEnd), 50);
-              processedModals.add(modal);
-              foundNewModal = true;
-            }
-          });
-          
-          if (foundNewModal) {
-            console.log('✅ Modal dismissed');
+            console.log('✅ Hidden:', reason);
+            return true;
+          } catch (e) {
+            console.error('❌ Failed:', e);
+            return false;
           }
         }
         
-        // Run immediately
-        console.log('🚀 Modal blocker initialized');
+        function makeNonBlocking(element, reason) {
+          try {
+            // Make overlay non-blocking but keep it in the page
+            element.style.setProperty('pointer-events', 'none', 'important');
+            console.log('👻 Made non-blocking:', reason);
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+        
+        function closeModal() {
+          let foundNewModal = false;
+          
+          const paymentModals = document.querySelectorAll('[data-testid="in-app-form"], .inAppForm, [class*="PaymentsModal"], [class*="drawer-critical-module__body"]:not([class*="transparent"])');
+          
+          if (paymentModals.length > 0) {
+            console.log('🔍 Found', paymentModals.length, 'payment modals');
+          }
+          
+          paymentModals.forEach(modal => {
+            const isVisible = modal.offsetParent !== null && 
+                            window.getComputedStyle(modal).display !== 'none';
+            
+            if (isVisible && !processedModals.has(modal)) {
+              console.log('💰 Hiding modal and showing subscription popup');
+              
+              processedModals.add(modal);
+              foundNewModal = true;
+              
+              // Immediately hide the modal
+              forceHideElement(modal, 'payment modal');
+              
+              // Find and remove all parent overlays from DOM
+              let parent = modal.parentElement;
+              let depth = 0;
+              while (parent && parent !== document.body && depth < 10) {
+                const parentClass = String(parent.className || '').toLowerCase();
+                if ((parentClass.includes('overlay') || 
+                     parentClass.includes('backdrop') || 
+                     parentClass.includes('drawer') ||
+                     parentClass.includes('curtain')) && 
+                    !parentClass.includes('gdpr')) {
+                  try {
+                    console.log('�️ Removing overlay:', parentClass);
+                    parent.remove();
+                    break;
+                  } catch (e) {}
+                }
+                parent = parent.parentElement;
+                depth++;
+              }
+              
+              // Force re-enable clicks on document
+              setTimeout(() => {
+                document.body.style.removeProperty('pointer-events');
+                document.documentElement.style.removeProperty('pointer-events');
+                console.log('✅ Re-enabled clicks on page');
+              }, 100);
+              
+              // Trigger subscription popup in Flutter
+              if (window.FlutterSubscription) {
+                window.FlutterSubscription.postMessage('showSubscription');
+                console.log('📱 Triggered subscription popup');
+              }
+            }
+          });
+          
+          if (!window.__popupBlocked) {
+            window.open = function() {
+              console.log('🚫 Blocked window.open');
+              return null;
+            };
+            window.__popupBlocked = true;
+          }
+          
+          if (foundNewModal) {
+            console.log('✅ Modal dismissal attempted');
+          }
+        }
+        
+        // DO NOT inject CSS blocker - let modal appear so we can dismiss it properly
+        // const style = document.createElement('style');
+        // style.textContent = \`
+        //   [data-testid="in-app-form"],
+        //   .inAppForm,
+        //   [class*="PaymentsModal"],
+        //   [class*="drawer-critical-module__body"]:not([class*="transparent"]) {
+        //     display: none !important;
+        //     visibility: hidden !important;
+        //     opacity: 0 !important;
+        //     max-height: 0 !important;
+        //     overflow: hidden !important;
+        //     pointer-events: none !important;
+        //   }
+        // \`;
+        // document.head.appendChild(style);
+        console.log('🎨 CSS blocker DISABLED - letting modal appear first');
+        
+        console.log('🚀 Modal blocker started');
         closeModal();
+        setInterval(closeModal, 100);
         
-        // Run every 1 second to catch modals quickly
-        setInterval(closeModal, 1000);
-        
-        // Watch for DOM changes (only for new modal additions)
         const observer = new MutationObserver((mutations) => {
-          const hasNewModal = mutations.some(m => 
-            Array.from(m.addedNodes).some(node => 
-              node.nodeType === 1 && 
-              (node.classList?.contains('modal-wrapper') || 
-               node.classList?.contains('inAppForm') ||
-               node.dataset?.testid === 'in-app-form')
-            )
+          const hasNewPaymentModal = mutations.some(m => 
+            Array.from(m.addedNodes).some(node => {
+              if (node.nodeType !== 1) return false;
+              const className = String(node.className || '');
+              return (
+                node.dataset && node.dataset.testid === 'in-app-form' ||
+                className.includes('inAppForm') ||
+                className.includes('PaymentsModal') ||
+                (className.includes('drawer-critical-module__body') && !className.includes('transparent'))
+              );
+            })
           );
-          if (hasNewModal) {
-            console.log('🔄 New modal detected');
+          if (hasNewPaymentModal) {
+            console.log('🔄 Payment modal added');
             closeModal();
           }
         });
@@ -567,6 +622,143 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               child: _buildFAB(),
             ),
           ),
+          
+          // Subscription Popup Overlay
+          if (_showSubscriptionPopup)
+            Positioned.fill(
+              child: Stack(
+                children: [
+                  // Blurred background barrier
+                  Positioned.fill(
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: _closeSubscriptionPopup,
+                      child: ClipRect(
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(
+                            sigmaX: 10,
+                            sigmaY: 10,
+                          ),
+                          child: Container(
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Popup content
+                  Center(
+                    child: Listener(
+                      behavior: HitTestBehavior.opaque,
+                      onPointerDown: (_) {},
+                      child: SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.9,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            /// Top Image Stack Section
+                            Expanded(
+                              child: Stack(
+                                clipBehavior: Clip.none,
+                                alignment: Alignment.center,
+                                children: [
+                                  // Main image
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(0),
+                                    child: Image.asset(
+                                      _config.subscriptionBackgroundImage,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+
+                                  // Play button
+                                  Positioned(
+                                    bottom: 20,
+                                    child: GestureDetector(
+                                      onTap: _handlePurchase,
+                                      child: Image.asset(
+                                        _config.subscriptionPriceTagImage,
+                                        height: 45,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            const SizedBox(height: 10),
+
+                            /// Bottom Action Row
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Wrap(
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: 16,
+                                runSpacing: 8,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      _openExternalLink(
+                                        label: _config.subscriptionPrivacyText,
+                                        url: _config.subscriptionPrivacyUrl,
+                                      );
+                                    },
+                                    child: Text(
+                                      _config.subscriptionPrivacyText,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+
+                                  // Restore Purchase
+                                  GestureDetector(
+                                    onTap: _handleRestorePurchase,
+                                    child: Text(
+                                      'Restore Purchase',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+
+                                  GestureDetector(
+                                    onTap: () {
+                                      _openExternalLink(
+                                        label: _config.subscriptionTermsText,
+                                        url: _config.subscriptionTermsUrl,
+                                      );
+                                    },
+                                    child: Text(
+                                      _config.subscriptionTermsText,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
@@ -715,6 +907,170 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         return Center(
           child: countdownContent,
         );
+    }
+  }
+
+  void _closeSubscriptionPopup() {
+    setState(() {
+      _showSubscriptionPopup = false;
+    });
+  }
+
+  Future<void> _handlePurchase() async {
+    try {
+      final iapService = await IAPService.getInstance();
+
+      // Show loading dialog
+      if (mounted) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 15),
+                  Text(
+                    'Processing purchase...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+
+      await iapService.purchaseSubscription(
+        type: _config.subscriptionTypes.isNotEmpty 
+            ? _config.subscriptionTypes.first 
+            : 'weekly',
+        onSuccess: () {
+          if (mounted) {
+            Navigator.of(context).pop(); // Close loading dialog
+            _closeSubscriptionPopup();
+            _showSuccessMessage(
+                'Subscription activated! Enjoy ad-free experience.');
+          }
+        },
+        onError: (error) {
+          if (mounted) {
+            Navigator.of(context).pop(); // Close loading dialog
+            _showErrorMessage(error);
+          }
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        Navigator.of(context).pop(); // Close loading dialog
+        _showErrorMessage('Failed to process purchase: $e');
+      }
+    }
+  }
+
+  Future<void> _handleRestorePurchase() async {
+    try {
+      final iapService = await IAPService.getInstance();
+
+      if (mounted) {
+        showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) => Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 15),
+                  Text(
+                    'Restoring purchases...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      }
+
+      await iapService.restorePurchases(
+        onSuccess: () {
+          if (!mounted) return;
+          Navigator.of(context).pop(); // Close loading dialog
+          _closeSubscriptionPopup();
+          _showSuccessMessage('Purchases restored! Enjoy ad-free experience.');
+        },
+        onError: (error) {
+          if (!mounted) return;
+          Navigator.of(context).pop(); // Close loading dialog
+          _showErrorMessage(error);
+        },
+      );
+    } catch (e) {
+      if (mounted) {
+        Navigator.of(context).pop(); // Close loading dialog
+        _showErrorMessage('Failed to restore purchases: $e');
+      }
+    }
+  }
+
+  void _showSuccessMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
+  void _showErrorMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
+  Future<void> _openExternalLink({
+    required String label,
+    required String url,
+  }) async {
+    if (url.isEmpty) {
+      _showErrorMessage('$label link not configured');
+      return;
+    }
+
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      if (mounted) {
+        _showErrorMessage('Could not open $label');
+      }
     }
   }
 }

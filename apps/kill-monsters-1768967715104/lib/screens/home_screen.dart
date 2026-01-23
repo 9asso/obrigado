@@ -69,7 +69,58 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     }
   }
 
-  void _navigateToNextScreen() {
+  void _navigateToNextScreen() async {
+    // Check if interstitial should be shown
+    if (_config.homeInterstitialEnabled && _config.admobEnabled && AdMobService.isSupported) {
+      // Show loading dialog
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Center(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: 15),
+                  Text(
+                    'Loading Ad...',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+
+      final adMobService = await AdMobService.getInstance();
+      await adMobService.showInterstitialAd(
+        onAdDismissed: () {
+          if (mounted) Navigator.of(context).pop();
+          _proceedToNextScreen();
+        },
+        onAdFailedToShow: () {
+          if (mounted) Navigator.of(context).pop();
+          _proceedToNextScreen();
+        },
+      );
+    } else {
+      _proceedToNextScreen();
+    }
+  }
+
+  void _proceedToNextScreen() {
     // Flow: genderSelection -> userInfo -> difficulty
     if (_config.isScreenEnabled('genderSelection')) {
       Navigator.push(

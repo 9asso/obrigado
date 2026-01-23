@@ -331,6 +331,16 @@ class AppConfig {
     return _config['screens'][screenName]?['enabled'] ?? true;
   }
 
+  // Screen interstitial settings
+  bool get homeInterstitialEnabled =>
+      _config['screens']['home']['interstitial']?['enabled'] ?? false;
+  bool get genderInterstitialEnabled =>
+      _config['screens']['genderSelection']['interstitial']?['enabled'] ?? true;
+  bool get userInfoInterstitialEnabled =>
+      _config['screens']['userInfo']['interstitial']?['enabled'] ?? false;
+  bool get difficultyInterstitialEnabled =>
+      _config['screens']['difficulty']['interstitial']?['enabled'] ?? false;
+
   // Home screen
   bool get homeShareButtonEnabled =>
       _config['screens']['home']['buttons']['share']['enabled'] ?? true;
