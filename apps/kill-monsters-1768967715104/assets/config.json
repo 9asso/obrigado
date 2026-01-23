@@ -34,7 +34,7 @@
     "url": "https://playhop.com/dist-app/480729?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 30
+      "duration": 2
     },
     "interstitial": {
       "enabled": true,
@@ -127,7 +127,7 @@
       }
     },
     "difficulty": {
-      "enabled": true,
+      "enabled": false,
       "continueButtonImage": "assets/pack/continue.png",
       "images": {
         "background": "assets/pack/bg.png",

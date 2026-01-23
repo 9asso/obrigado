@@ -207,9 +207,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           onPageStarted: (String url) {
             // Log page to history
             _pageHistory.add(url);
-            // print('📄 Page started: $url');
-            // print('📚 History count: ${_pageHistory.length}');
-            // print('📋 Full history: $_pageHistory');
+            print('📄 Page started: $url');
+            print('📚 History count: ${_pageHistory.length}');
+            print('📋 Full history: $_pageHistory');
             
             // setState(() {
             //   _isLoading = true;
