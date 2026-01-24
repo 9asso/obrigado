@@ -34,7 +34,7 @@
     "url": "https://playhop.com/dist-app/487076?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 15
+      "duration": 28
     },
     "interstitial": {
       "enabled": true,
@@ -96,7 +96,9 @@
       },
       "fallbackText": {
         "title": "Boy or Girl"
-      }
+      },
+      "selectionIndicatorColor": "#f0edf3",
+      "selectionIndicatorOpacity": 0.21
     },
     "userInfo": {
       "enabled": false,
