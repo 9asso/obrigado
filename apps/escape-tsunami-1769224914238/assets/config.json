@@ -200,8 +200,8 @@
       },
       "progressBar": {
         "width": 310,
-        "height": 24,
-        "borderRadius": 10
+        "height": 18,
+        "borderRadius": 30
       }
     }
   },

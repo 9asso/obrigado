@@ -121,16 +121,6 @@ class _GenderSelectionScreenState extends State<GenderSelectionScreen>
     } else {
       _proceedToNextScreen();
     }
-          // Navigate to next screen anyway
-          _proceedToNextScreen();
-        },
-          );
-        } else {
-          _proceedToNextScreen();
-        }
-    } else {
-      _proceedToNextScreen();
-    }
   }
 
   void _proceedToNextScreen() {

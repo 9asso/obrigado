@@ -722,7 +722,7 @@ class _DifficultyScreenState extends State<DifficultyScreen>
               children: [
                 Image.asset(
                   iconUrl,
-                  width: 180,
+                  width: 130,
                   errorBuilder: (context, error, stackTrace) {
                     return Icon(
                       difficulty == 'Easy'
