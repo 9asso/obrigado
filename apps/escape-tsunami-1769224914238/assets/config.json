@@ -15,26 +15,26 @@
   },
   "admob": {
     "enabled": true,
-    "testMode": true,
+    "testMode": false,
     "android": {
-      "appId": "ca-app-pub-3940256099942544~3347511713",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712",
-      "appOpenAdUnitId": "ca-app-pub-3940256099942544/3419835294"
+      "appId": "ca-app-pub-5080833301669041~9172451774",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/5545048016",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/2089729179",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/4231966345"
     },
     "ios": {
-      "appId": "ca-app-pub-3940256099942544~1458002511",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910",
-      "appOpenAdUnitId": "ca-app-pub-3940256099942544/5662855259"
+      "appId": "ca-app-pub-5080833301669041~9172451774",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/5545048016",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/2089729179",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/4231966345"
     }
   },
   "game": {
     "enabled": true,
-    "url": "",
+    "url": "https://playhop.com/dist-app/487076?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 15
+      "duration": 28
     },
     "interstitial": {
       "enabled": true,
@@ -68,10 +68,10 @@
           "enabled": true,
           "image": "assets/pack/share.png",
           "label": "Share",
-          "message": "Check out this amazing game!"
+          "message": "OMG I CANT BELIEVE THIS MY FAVORITE GAME IS FINALLY ON IPHONE DOWNLOAD NOW !"
         },
         "moreGames": {
-          "enabled": true,
+          "enabled": false,
           "image": "assets/pack/more.png",
           "label": "More Games"
         },
@@ -88,7 +88,7 @@
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "interstitial": {
         "enabled": true
       },
@@ -103,8 +103,8 @@
       "fallbackText": {
         "title": "Boy or Girl"
       },
-      "selectionIndicatorColor": "#63397e",
-      "selectionIndicatorOpacity": 1
+      "selectionIndicatorColor": "#ffffff",
+      "selectionIndicatorOpacity": 0.08
     },
     "userInfo": {
       "enabled": false,
@@ -161,10 +161,11 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/layer_1.png"
     },
     "moreGames": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "header": "assets/pack/moregames.png",
@@ -228,7 +229,7 @@
         "enabled": true,
         "privacy": {
           "text": "Privacy Policy",
-          "url": ""
+          "url": "https://kararbgames.web.app/privacypolicy.html"
         },
         "terms": {
           "text": "Terms of Use",
@@ -254,7 +255,7 @@
           "shadowBlurRadius": 1
         },
         "price": {
-          "text": "$7.99",
+          "text": "",
           "fontSize": 24,
           "fontWeight": "bold",
           "color": "#FFFFFF",
@@ -267,11 +268,12 @@
         "right": -10,
         "height": 40
       }
-    }
+    },
+    "type": "weekly"
   },
   "theme": {
-    "primaryColor": "#6366F1",
-    "accentColor": "#EC4899",
+    "primaryColor": "#afb0bb",
+    "accentColor": "#afb0bb",
     "errorColor": "#F44336"
   },
   "animation": {
