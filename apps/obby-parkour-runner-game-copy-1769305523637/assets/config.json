@@ -1,11 +1,11 @@
 {
   "app": {
-    "title": "Obby Parkour: Runner Game Copy",
+    "title": "Obby Parkour: Runner Game",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.obbyparkour.runnergame",
     "identifierId": "com.obbyparkour.runnergame",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "3.0.0",
+    "buildNumber": "3",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
