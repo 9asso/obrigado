@@ -200,7 +200,7 @@
       },
       "progressBar": {
         "width": 310,
-        "height": 28,
+        "height": 30,
         "borderRadius": 30
       }
     }
@@ -213,8 +213,8 @@
       "lifetime"
     ],
     "productIds": {
-      "android": "subscription_no_ads",
-      "ios": "subscription_no_ads"
+      "android": "com.tsonami",
+      "ios": "com.tsonami"
     },
     "popup": {
       "barrierDismissible": false,
