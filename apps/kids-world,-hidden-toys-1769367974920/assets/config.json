@@ -15,7 +15,7 @@
   },
   "admob": {
     "enabled": true,
-    "testMode": true,
+    "testMode": false,
     "android": {
       "appId": "ca-app-pub-3940256099942544~3347511713",
       "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
@@ -31,7 +31,7 @@
   },
   "game": {
     "enabled": true,
-    "url": "",
+    "url": "https://playhop.com/dist-app/484819?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 15
@@ -103,7 +103,7 @@
       "fallbackText": {
         "title": "Boy or Girl"
       },
-      "selectionIndicatorColor": "#63397e",
+      "selectionIndicatorColor": "#0c8c26",
       "selectionIndicatorOpacity": 1
     },
     "userInfo": {
@@ -161,7 +161,8 @@
           "label": "Hard"
         }
       },
-      "unselectedOpacity": 0.3
+      "unselectedOpacity": 0.3,
+      "titleImage": "assets/pack/difficultytitleimage.png"
     },
     "moreGames": {
       "enabled": true,
@@ -205,7 +206,7 @@
     }
   },
   "subscription": {
-    "enabled": true,
+    "enabled": false,
     "types": [
       "weekly",
       "monthly",
@@ -270,9 +271,9 @@
     }
   },
   "theme": {
-    "primaryColor": "#6366F1",
-    "accentColor": "#EC4899",
-    "errorColor": "#F44336"
+    "primaryColor": "#48cf17",
+    "accentColor": "#007bff",
+    "errorColor": "#e83b3b"
   },
   "animation": {
     "buttonPressDuration": 150,
