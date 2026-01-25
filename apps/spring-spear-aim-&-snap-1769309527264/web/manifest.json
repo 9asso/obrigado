@@ -1,11 +1,11 @@
 {
-    "name": "Spring Spear Aim & Snap",
-    "short_name": "Spring Spear Aim & Snap",
+    "name": "old - Spring Spear Aim & Snap",
+    "short_name": "old - Spring Spear Aim & Snap",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#673AB7",
     "theme_color": "#673AB7",
-    "description": "Spring Spear Aim & Snap app",
+    "description": "old - Spring Spear Aim & Snap app",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
