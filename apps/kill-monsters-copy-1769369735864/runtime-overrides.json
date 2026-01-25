@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-01-25T19:35:35.971Z",
+  "overrides": {
+    "game": {
+      "url": "https://playhop.com/dist-app/480729?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "enabled": true,
+      "interstitial": {
+        "interval": 90
+      }
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": true
+      },
+      "userInfo": {
+        "enabled": false
+      },
+      "difficulty": {
+        "enabled": false
+      },
+      "moreGames": {
+        "enabled": false
+      },
+      "splash": {
+        "enabled": true
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": true
+    },
+    "subscription": {
+      "enabled": true,
+      "productIds": {
+        "android": "subscription_no_ads",
+        "ios": "subscription_no_ads"
+      },
+      "popup": {
+        "footer": {
+          "terms": {
+            "url": "https://www.apple.com/legal/internet-services/itunes/"
+          }
+        }
+      }
+    }
+  }
+}
