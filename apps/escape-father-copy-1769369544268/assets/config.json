@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Escape Father",
+    "title": "Escape Lava",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.santescape.christmas",
     "identifierId": "com.santescape.christmas",
@@ -31,7 +31,7 @@
   },
   "game": {
     "enabled": true,
-    "url": "https://playhop.com/dist-app/481662?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "url": "https://playhop.com/dist-app/488498?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 20

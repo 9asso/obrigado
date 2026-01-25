@@ -1,11 +1,11 @@
 {
-    "name": "Escape Father",
-    "short_name": "Escape Father",
+    "name": "Escape Lava",
+    "short_name": "Escape Lava",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#673AB7",
     "theme_color": "#673AB7",
-    "description": "Escape Father app",
+    "description": "Escape Lava app",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
