@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'screens/splash_screen.dart';
 import 'services/app_config.dart';
 import 'services/admob_service.dart';
+import 'services/att_service.dart';
+import 'services/app_open_ad_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,11 +17,24 @@ void main() async {
   
   // Load config before running the app
   await AppConfig.getInstance();
+
+  // Ask App Not To Track (iOS 14+). Safe no-op elsewhere.
+  await AttService.requestAuthorizationIfNeeded();
   
   // Initialize AdMob
   await AdMobService.initialize();
+
+  // App Open Ad (show on foreground/resume)
+  final appOpenAdService = await AppOpenAdService.getInstance();
+  appOpenAdService.attach();
+  await appOpenAdService.warmUp();
   
   runApp(const MyApp());
+
+  // Attempt to show once after first frame (cold start).
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    appOpenAdService.showIfAvailable();
+  });
 }
 
 class MyApp extends StatelessWidget {

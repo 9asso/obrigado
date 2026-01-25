@@ -1,11 +1,11 @@
 {
-    "name": "Obby Parkour: Runner Game",
-    "short_name": "Obby Parkour: Runner Game",
+    "name": "Obby Parkour: Runner Game - Old",
+    "short_name": "Obby Parkour: Runner Game - Old",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#673AB7",
     "theme_color": "#673AB7",
-    "description": "Obby Parkour: Runner Game app",
+    "description": "Obby Parkour: Runner Game - Old app",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

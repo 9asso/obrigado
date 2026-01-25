@@ -47,6 +47,14 @@ class AdMobService {
 
   String getBannerAdUnitId() {
     if (!isSupported) return '';
+    if (_config.admobTestMode) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
+        return 'ca-app-pub-3940256099942544/6300978111';
+      } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+        return 'ca-app-pub-3940256099942544/2934735716';
+      }
+      return '';
+    }
     if (defaultTargetPlatform == TargetPlatform.android) {
       return _config.androidBannerAdUnitId;
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {
@@ -57,6 +65,14 @@ class AdMobService {
 
   String getInterstitialAdUnitId() {
     if (!isSupported) return '';
+    if (_config.admobTestMode) {
+      if (defaultTargetPlatform == TargetPlatform.android) {
+        return 'ca-app-pub-3940256099942544/1033173712';
+      } else if (defaultTargetPlatform == TargetPlatform.iOS) {
+        return 'ca-app-pub-3940256099942544/4411468910';
+      }
+      return '';
+    }
     if (defaultTargetPlatform == TargetPlatform.android) {
       return _config.androidInterstitialAdUnitId;
     } else if (defaultTargetPlatform == TargetPlatform.iOS) {

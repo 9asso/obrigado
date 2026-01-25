@@ -101,7 +101,7 @@ class AppConfig {
 
   bool _applyRuntimeOverridesDocument(Map<String, dynamic> doc) {
     // Document format:
-    // { schemaVersion: 1, configVersion: "...", overrides: { game: {url}, screens: { screen: {enabled} } } }
+        // { schemaVersion: 1, configVersion: "...", overrides: { game, screens, admob, subscription } }
     final schemaVersion = doc['schemaVersion'];
     if (schemaVersion != 1) return false;
 
@@ -124,6 +124,21 @@ class AppConfig {
             ? _config['game']
             : <String, dynamic>{};
         (_config['game'] as Map<String, dynamic>)['enabled'] = enabled;
+      }
+
+      final interstitial = game['interstitial'];
+      if (interstitial is Map) {
+        final interval = interstitial['interval'];
+        if (interval is int && interval > 0) {
+          _config['game'] = (_config['game'] is Map<String, dynamic>)
+              ? _config['game']
+              : <String, dynamic>{};
+          final gameConfig = _config['game'] as Map<String, dynamic>;
+          gameConfig['interstitial'] = (gameConfig['interstitial'] is Map<String, dynamic>)
+              ? gameConfig['interstitial']
+              : <String, dynamic>{};
+          (gameConfig['interstitial'] as Map<String, dynamic>)['interval'] = interval;
+        }
       }
     }
 
@@ -151,6 +166,104 @@ class AppConfig {
       }
     }
 
+        final admob = overrides['admob'];
+        if (admob is Map) {
+            _config['admob'] = (_config['admob'] is Map<String, dynamic>)
+                    ? _config['admob']
+                    : <String, dynamic>{};
+            final admobConfig = _config['admob'] as Map<String, dynamic>;
+
+            final enabled = admob['enabled'];
+            if (enabled is bool) {
+                admobConfig['enabled'] = enabled;
+            }
+
+            final testMode = admob['testMode'];
+            if (testMode is bool) {
+                admobConfig['testMode'] = testMode;
+            }
+
+            final android = admob['android'];
+            if (android is Map) {
+                admobConfig['android'] = (admobConfig['android'] is Map<String, dynamic>)
+                        ? admobConfig['android']
+                        : <String, dynamic>{};
+                final androidCfg = admobConfig['android'] as Map<String, dynamic>;
+
+                final bannerAdUnitId = android['bannerAdUnitId'];
+                if (bannerAdUnitId is String && bannerAdUnitId.trim().isNotEmpty) {
+                    androidCfg['bannerAdUnitId'] = bannerAdUnitId.trim();
+                }
+
+                final interstitialAdUnitId = android['interstitialAdUnitId'];
+                if (interstitialAdUnitId is String &&
+                        interstitialAdUnitId.trim().isNotEmpty) {
+                    androidCfg['interstitialAdUnitId'] = interstitialAdUnitId.trim();
+                }
+
+                final appOpenAdUnitId = android['appOpenAdUnitId'];
+                if (appOpenAdUnitId is String && appOpenAdUnitId.trim().isNotEmpty) {
+                    androidCfg['appOpenAdUnitId'] = appOpenAdUnitId.trim();
+                }
+            }
+
+            final ios = admob['ios'];
+            if (ios is Map) {
+                admobConfig['ios'] = (admobConfig['ios'] is Map<String, dynamic>)
+                        ? admobConfig['ios']
+                        : <String, dynamic>{};
+                final iosCfg = admobConfig['ios'] as Map<String, dynamic>;
+
+                final bannerAdUnitId = ios['bannerAdUnitId'];
+                if (bannerAdUnitId is String && bannerAdUnitId.trim().isNotEmpty) {
+                    iosCfg['bannerAdUnitId'] = bannerAdUnitId.trim();
+                }
+
+                final interstitialAdUnitId = ios['interstitialAdUnitId'];
+                if (interstitialAdUnitId is String &&
+                        interstitialAdUnitId.trim().isNotEmpty) {
+                    iosCfg['interstitialAdUnitId'] = interstitialAdUnitId.trim();
+                }
+
+                final appOpenAdUnitId = ios['appOpenAdUnitId'];
+                if (appOpenAdUnitId is String && appOpenAdUnitId.trim().isNotEmpty) {
+                    iosCfg['appOpenAdUnitId'] = appOpenAdUnitId.trim();
+                }
+            }
+        }
+
+        final subscription = overrides['subscription'];
+        if (subscription is Map) {
+            _config['subscription'] = (_config['subscription'] is Map<String, dynamic>)
+                    ? _config['subscription']
+                    : <String, dynamic>{};
+            final subscriptionConfig = _config['subscription'] as Map<String, dynamic>;
+
+            final enabled = subscription['enabled'];
+            if (enabled is bool) {
+                subscriptionConfig['enabled'] = enabled;
+            }
+
+            final productIds = subscription['productIds'];
+            if (productIds is Map) {
+                subscriptionConfig['productIds'] =
+                        (subscriptionConfig['productIds'] is Map<String, dynamic>)
+                                ? subscriptionConfig['productIds']
+                                : <String, dynamic>{};
+                final productIdsCfg = subscriptionConfig['productIds'] as Map<String, dynamic>;
+
+                final android = productIds['android'];
+                if (android is String && android.trim().isNotEmpty) {
+                    productIdsCfg['android'] = android.trim();
+                }
+
+                final ios = productIds['ios'];
+                if (ios is String && ios.trim().isNotEmpty) {
+                    productIdsCfg['ios'] = ios.trim();
+                }
+            }
+        }
+
     return true;
   }
 
@@ -172,12 +285,16 @@ class AppConfig {
       _config['admob']?['android']?['bannerAdUnitId'] ?? '';
   String get androidInterstitialAdUnitId =>
       _config['admob']?['android']?['interstitialAdUnitId'] ?? '';
+  String get androidAppOpenAdUnitId =>
+      _config['admob']?['android']?['appOpenAdUnitId'] ?? '';
 
   String get iosAdmobAppId => _config['admob']?['ios']?['appId'] ?? '';
   String get iosBannerAdUnitId =>
       _config['admob']?['ios']?['bannerAdUnitId'] ?? '';
   String get iosInterstitialAdUnitId =>
       _config['admob']?['ios']?['interstitialAdUnitId'] ?? '';
+  String get iosAppOpenAdUnitId =>
+      _config['admob']?['ios']?['appOpenAdUnitId'] ?? '';
 
   // Game settings
   bool get gameEnabled => _config['game']?['enabled'] ?? true;
@@ -213,6 +330,16 @@ class AppConfig {
   bool isScreenEnabled(String screenName) {
     return _config['screens'][screenName]?['enabled'] ?? true;
   }
+
+  // Screen interstitial settings
+  bool get homeInterstitialEnabled =>
+      _config['screens']['home']['interstitial']?['enabled'] ?? false;
+  bool get genderInterstitialEnabled =>
+      _config['screens']['genderSelection']['interstitial']?['enabled'] ?? true;
+  bool get userInfoInterstitialEnabled =>
+      _config['screens']['userInfo']['interstitial']?['enabled'] ?? false;
+  bool get difficultyInterstitialEnabled =>
+      _config['screens']['difficulty']['interstitial']?['enabled'] ?? false;
 
   // Home screen
   bool get homeShareButtonEnabled =>
@@ -275,6 +402,13 @@ class AppConfig {
   String get genderFallbackTitle =>
       _config['screens']['genderSelection']['fallbackText']['title'] ??
       'Boy or Girl';
+  
+  String get genderSelectionIndicatorColor =>
+      _config['screens']['genderSelection']['selectionIndicatorColor'] ??
+      '#63397e';
+  
+  double get genderSelectionIndicatorOpacity =>
+      (_config['screens']['genderSelection']['selectionIndicatorOpacity'] ?? 1.0).toDouble();
 
   // User Info
   String get userInfoBackgroundImage =>
@@ -418,15 +552,12 @@ class AppConfig {
   String get subscriptionBackgroundImage =>
       _config['subscription']['popup']['images']['background'] ??
       'assets/pack/noadspopup.png';
-  String get subscriptionIconImage =>
-      _config['subscription']['popup']['images']['icon'] ??
-      'assets/pack/noadsicon.png';
   String get subscriptionPriceTagImage =>
       _config['subscription']['popup']['images']['priceTag'] ??
       'assets/pack/pricetag.png';
   String get subscriptionCloseImage =>
       _config['subscription']['popup']['images']['close'] ??
-      'assets/pack/noadsclose.png';
+      'assets/pack/close.png';
 
   double get subscriptionIconHeight =>
       (_config['subscription']['popup']['content']['iconHeight'] ?? 120)
@@ -508,13 +639,6 @@ class AppConfig {
   String get subscriptionPrivacyUrl =>
       _config['subscription']['popup']['footer']?['privacy']?['url'] ?? '';
 
-  String get subscriptionRestorePurchaseImage =>
-      _config['subscription']['popup']['footer']?['restore']?['image'] ??
-      'assets/pack/restore.png';
-  double get subscriptionRestorePurchaseHeight =>
-      (_config['subscription']['popup']['footer']?['restore']?['height'] ?? 28)
-          .toDouble();
-
   double get subscriptionFooterTopPadding =>
       (_config['subscription']['popup']['footer']?['style']?['topPadding'] ??
               12)
@@ -534,14 +658,41 @@ class AppConfig {
   List<String> get subscriptionTypes =>
       List<String>.from(_config['subscription']['types'] ?? ['monthly']);
 
+    String _readSubscriptionProductId(String platform, {String? type}) {
+        try {
+            final productIds = _config['subscription']?['productIds'];
+            if (productIds is! Map) return '';
+
+            final platformValue = productIds[platform];
+            if (platformValue is String) return platformValue;
+
+            if (platformValue is Map) {
+                final wantedType = (type != null && type.trim().isNotEmpty)
+                        ? type.trim()
+                        : (subscriptionTypes.isNotEmpty ? subscriptionTypes.first : '');
+                final v = platformValue[wantedType];
+                return v is String ? v : '';
+            }
+        } catch (_) {
+            // ignore
+        }
+
+        return '';
+    }
+
   String getSubscriptionProductId(String type, String platform) {
-    return _config['subscription']['productIds']?[platform]?[type] ?? '';
+        final v = _readSubscriptionProductId(platform, type: type);
+        return v;
   }
 
   String get androidSubscriptionProductId =>
-      _config['subscription']['productIds']['android'] ?? 'subscription_no_ads';
+            _readSubscriptionProductId('android').isNotEmpty
+                    ? _readSubscriptionProductId('android')
+                    : 'subscription_no_ads';
   String get iosSubscriptionProductId =>
-      _config['subscription']['productIds']['ios'] ?? 'subscription_no_ads';
+            _readSubscriptionProductId('ios').isNotEmpty
+                    ? _readSubscriptionProductId('ios')
+                    : 'subscription_no_ads';
 
   // Theme
   Color get primaryColor =>
