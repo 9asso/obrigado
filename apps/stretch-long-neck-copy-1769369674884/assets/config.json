@@ -1,11 +1,11 @@
 {
   "app": {
-    "title": "Stretch Long Neck Copy",
+    "title": "Stretch Long Neck",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.neckgame.obby",
     "identifierId": "com.neckgame.obby",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "3.0.0",
+    "buildNumber": "3.0.0",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
