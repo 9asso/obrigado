@@ -331,6 +331,16 @@ class AppConfig {
     return _config['screens'][screenName]?['enabled'] ?? true;
   }
 
+  // Screen interstitial settings
+  bool get homeInterstitialEnabled =>
+      _config['screens']['home']['interstitial']?['enabled'] ?? false;
+  bool get genderInterstitialEnabled =>
+      _config['screens']['genderSelection']['interstitial']?['enabled'] ?? true;
+  bool get userInfoInterstitialEnabled =>
+      _config['screens']['userInfo']['interstitial']?['enabled'] ?? false;
+  bool get difficultyInterstitialEnabled =>
+      _config['screens']['difficulty']['interstitial']?['enabled'] ?? false;
+
   // Home screen
   bool get homeShareButtonEnabled =>
       _config['screens']['home']['buttons']['share']['enabled'] ?? true;
@@ -392,6 +402,13 @@ class AppConfig {
   String get genderFallbackTitle =>
       _config['screens']['genderSelection']['fallbackText']['title'] ??
       'Boy or Girl';
+  
+  String get genderSelectionIndicatorColor =>
+      _config['screens']['genderSelection']['selectionIndicatorColor'] ??
+      '#63397e';
+  
+  double get genderSelectionIndicatorOpacity =>
+      (_config['screens']['genderSelection']['selectionIndicatorOpacity'] ?? 1.0).toDouble();
 
   // User Info
   String get userInfoBackgroundImage =>
