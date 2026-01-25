@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-01-25T19:41:17.674Z",
+  "overrides": {
+    "game": {
+      "url": "https://playhop.com/dist-app/481662?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "enabled": true,
+      "interstitial": {
+        "interval": 90
+      }
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": true
+      },
+      "userInfo": {
+        "enabled": true
+      },
+      "difficulty": {
+        "enabled": true
+      },
+      "moreGames": {
+        "enabled": true
+      },
+      "splash": {
+        "enabled": true
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": true
+    },
+    "subscription": {
+      "enabled": true,
+      "productIds": {
+        "android": "com.week.santalevels",
+        "ios": "com.week.santalevels"
+      },
+      "popup": {
+        "footer": {
+          "privacy": {
+            "url": "https://www.linkedin.com/"
+          },
+          "terms": {
+            "url": "https://www.instagram.com/reels/DQ68xvAjM3R/"
+          }
+        }
+      }
+    }
+  }
+}
