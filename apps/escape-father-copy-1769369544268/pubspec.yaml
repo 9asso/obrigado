@@ -1,6 +1,6 @@
-name: christmas2
+name: christmas
 description: Escape Father Copy Flutter application
-version: 1.0.0+1
+version: 2.0.0+2.0.0
 environment:
   sdk: ">=3.0.0 <4.0.0"
 dependencies:

@@ -1,11 +1,11 @@
 {
   "app": {
-    "title": "Escape Father Copy",
+    "title": "Escape Father",
     "icon": "assets/pack/appicon.png",
-    "packageName": "com.santescape.christmas2",
-    "identifierId": "com.santescape.christmas2",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "packageName": "com.santescape.christmas",
+    "identifierId": "com.santescape.christmas",
+    "version": "2.0.0",
+    "buildNumber": "2.0.0",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
