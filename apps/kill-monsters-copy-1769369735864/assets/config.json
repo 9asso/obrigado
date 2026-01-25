@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Kill Monsters Copy",
+    "title": "Kill Monsters",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.kill.brainmonsters",
     "identifierId": "com.kill.brainmonsters",
