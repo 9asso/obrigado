@@ -96,7 +96,9 @@
       },
       "fallbackText": {
         "title": "Boy or Girl"
-      }
+      },
+      "selectionIndicatorOpacity": 0.31,
+      "selectionIndicatorColor": "#463f4b"
     },
     "userInfo": {
       "enabled": false,
