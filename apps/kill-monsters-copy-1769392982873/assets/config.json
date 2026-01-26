@@ -1,9 +1,9 @@
 {
   "app": {
-    "title": "Kill Monsters Copy",
+    "title": "Escape Prison",
     "icon": "assets/pack/appicon.png",
-    "packageName": "com.kill.brainmonsters.copy",
-    "identifierId": "com.kill.brainmonsters.copy",
+    "packageName": "com.escapeprison.gamesbest",
+    "identifierId": "com.escapeprison.gamesbest",
     "version": "1.0.0",
     "buildNumber": "1",
     "enableSplashScreen": true,
