@@ -34,7 +34,7 @@
     "url": "https://playhop.com/dist-app/408681?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
-      "duration": 2
+      "duration": 25
     },
     "interstitial": {
       "enabled": true,
