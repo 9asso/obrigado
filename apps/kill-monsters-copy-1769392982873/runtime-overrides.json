@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-26T02:04:00.994Z",
+  "configVersion": "2026-01-26T22:07:26.179Z",
   "overrides": {
     "game": {
-      "url": "https://playhop.com/dist-app/480729?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "url": "https://playhop.com/dist-app/408681?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
       "enabled": true,
       "interstitial": {
         "interval": 90
