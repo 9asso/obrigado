@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-27T22:52:46.481Z",
+  "configVersion": "2026-01-27T23:03:46.026Z",
   "overrides": {
     "game": {
       "url": "https://playhop.com/dist-app/487076?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
@@ -26,7 +26,7 @@
         "enabled": false
       },
       "splash": {
-        "enabled": true
+        "enabled": false
       }
     },
     "admob": {
