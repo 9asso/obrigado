@@ -65,7 +65,7 @@
       },
       "buttons": {
         "share": {
-          "enabled": true,
+          "enabled": false,
           "image": "assets/pack/share.png",
           "label": "Share",
           "message": "OMG I CANT BELIEVE THIS MY FAVORITE GAME IS FINALLY ON IPHONE DOWNLOAD NOW !"
@@ -88,9 +88,9 @@
       }
     },
     "genderSelection": {
-      "enabled": true,
+      "enabled": false,
       "interstitial": {
-        "enabled": true
+        "enabled": false
       },
       "images": {
         "background": "assets/pack/bg.png",
@@ -140,7 +140,7 @@
     "difficulty": {
       "enabled": true,
       "interstitial": {
-        "enabled": false
+        "enabled": true
       },
       "continueButtonImage": "assets/pack/continue.png",
       "images": {
@@ -206,7 +206,7 @@
     }
   },
   "subscription": {
-    "enabled": true,
+    "enabled": false,
     "types": [
       "weekly",
       "monthly",
