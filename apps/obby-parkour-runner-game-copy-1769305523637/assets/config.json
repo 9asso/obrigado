@@ -4,8 +4,8 @@
     "icon": "assets/pack/appicon.png",
     "packageName": "com.obbyparkour.runnergame",
     "identifierId": "com.obbyparkour.runnergame",
-    "version": "3.0.0",
-    "buildNumber": "3",
+    "version": "4.0.0",
+    "buildNumber": "4",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
@@ -17,14 +17,16 @@
     "enabled": true,
     "testMode": false,
     "android": {
-      "appId": "ca-app-pub-3940256099942544~3347511713",
-      "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
-      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712"
+      "appId": "ca-app-pub-6258482684280708~7606121645",
+      "bannerAdUnitId": "ca-app-pub-6258482684280708/1896637576",
+      "interstitialAdUnitId": "ca-app-pub-6258482684280708/9583555908",
+      "appOpenAdUnitId": "ca-app-pub-6258482684280708/4551946806"
     },
     "ios": {
       "appId": "ca-app-pub-6258482684280708~7606121645",
       "bannerAdUnitId": "ca-app-pub-6258482684280708/1896637576",
-      "interstitialAdUnitId": "ca-app-pub-6258482684280708/9583555908"
+      "interstitialAdUnitId": "ca-app-pub-6258482684280708/9583555908",
+      "appOpenAdUnitId": "ca-app-pub-6258482684280708/4551946806"
     }
   },
   "game": {
@@ -66,7 +68,7 @@
           "message": "Check out this amazing game!"
         },
         "moreGames": {
-          "enabled": true,
+          "enabled": false,
           "image": "assets/pack/more.png",
           "label": "More Games"
         },
@@ -80,10 +82,13 @@
         "background": "assets/pack/bg.png",
         "header": "assets/pack/header.png",
         "play": "assets/pack/play.png"
+      },
+      "interstitial": {
+        "enabled": true
       }
     },
     "genderSelection": {
-      "enabled": false,
+      "enabled": true,
       "images": {
         "background": "assets/pack/bg.png",
         "title": "assets/pack/boyorgirl.png",
@@ -94,6 +99,9 @@
       },
       "fallbackText": {
         "title": "Boy or Girl"
+      },
+      "interstitial": {
+        "enabled": false
       }
     },
     "userInfo": {
@@ -146,10 +154,13 @@
         }
       },
       "unselectedOpacity": 0.3,
-      "titleImage": "assets/pack/difficulty.png"
+      "titleImage": "assets/pack/difficulty.png",
+      "interstitial": {
+        "enabled": true
+      }
     },
     "moreGames": {
-      "enabled": true,
+      "enabled": false,
       "images": {
         "background": "assets/pack/bg.png",
         "header": "assets/pack/moregames.png",
@@ -190,7 +201,7 @@
     }
   },
   "subscription": {
-    "enabled": true,
+    "enabled": false,
     "types": [
       "weekly",
       "monthly",

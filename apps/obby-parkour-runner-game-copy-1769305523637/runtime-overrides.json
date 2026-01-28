@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "configVersion": "2026-01-26T21:26:17.721Z",
+  "configVersion": "2026-01-28T00:16:45.270Z",
   "overrides": {
     "game": {
       "enabled": true,
@@ -13,7 +13,7 @@
         "enabled": true
       },
       "genderSelection": {
-        "enabled": false
+        "enabled": true
       },
       "userInfo": {
         "enabled": false
@@ -22,7 +22,7 @@
         "enabled": true
       },
       "moreGames": {
-        "enabled": true
+        "enabled": false
       },
       "splash": {
         "enabled": true
@@ -33,7 +33,7 @@
       "testMode": false
     },
     "subscription": {
-      "enabled": true,
+      "enabled": false,
       "productIds": {
         "android": "subscription_no_ads",
         "ios": "subscription_no_ads"
