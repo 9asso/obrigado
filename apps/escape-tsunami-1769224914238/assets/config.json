@@ -4,8 +4,8 @@
     "icon": "assets/pack/appicon.png",
     "packageName": "com.tsunami.escapegame",
     "identifierId": "com.tsunami.escapegame",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "1.5",
+    "buildNumber": "1.5",
     "enableSplashScreen": true,
     "loadingProgressSpeed": 30,
     "loadingProgressIncrement": 0.01
