@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-06-30T17:15:12.935Z",
+  "overrides": {
+    "game": {
+      "url": "https://playhop.com/dist-app/000000?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "enabled": true,
+      "selection": {
+        "games": [
+          {
+            "title": "Home Kpop",
+            "image": "assets/pack/puzzle_first.png",
+            "url": "https://playhop.com/dist-app/436973?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+            "visible": true
+          },
+          {
+            "title": "Home Kpop 2",
+            "image": "assets/pack/puzzle_dream.jpg",
+            "url": "https://playhop.com/dist-app/389282?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+            "visible": true
+          },
+          {
+            "title": "PUZZLE HOUSE",
+            "image": "assets/pack/puzzle_house.jpg",
+            "url": "https://game.doritosscript.com/her-trees-puzzle-house/index.html",
+            "visible": false
+          }
+        ]
+      },
+      "interstitial": {
+        "interval": 90
+      }
+    },
+    "screens": {
+      "home": {
+        "enabled": true
+      },
+      "genderSelection": {
+        "enabled": false
+      },
+      "userInfo": {
+        "enabled": false
+      },
+      "difficulty": {
+        "enabled": false
+      },
+      "moreGames": {
+        "enabled": false
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": false
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "configVersion": "2026-06-27T18:39:54.869Z",
+  "overrides": {
+    "game": {
+      "url": "https://playhop.com/dist-app/405292?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+      "interstitial": {
+        "interval": 90
+      }
+    },
+    "admob": {
+      "enabled": true,
+      "testMode": false
+    },
+    "subscription": {
+      "enabled": true,
+      "popup": {
+        "footer": {
+          "terms": {
+            "url": "https://www.apple.com/legal/internet-services/itunes/"
+          }
+        }
+      }
+    }
+  }
+}

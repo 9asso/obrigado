@@ -1,0 +1,174 @@
+{
+  "app": {
+    "title": "Halloween Merge Magic Puzzles",
+    "icon": "assets/pack/cc3b9a6d5c50a02864554270.png",
+    "packageName": "com.halloweenmergemagic.mergemagicpuzzles",
+    "orientation": "portrait",
+    "identifierId": "com.halloweenmergemagic.mergemagicpuzzles",
+    "version": "2.0.0",
+    "buildNumber": 2,
+    "enableSplashScreen": true,
+    "packageIdentifier": "com.halloweenmergemagic.mergemagicpuzzles"
+  },
+  "runtimeOverrides": {
+    "baseUrl": "https://storage.googleapis.com/appsconfigs"
+  },
+  "admob": {
+    "enabled": true,
+    "testMode": true,
+    "enableAppOpenAd": true,
+    "android": {
+      "bannerAdUnitId": "ca-app-pub-3940256099942544/6300978111",
+      "interstitialAdUnitId": "ca-app-pub-3940256099942544/1033173712",
+      "appOpenAdUnitId": "ca-app-pub-3940256099942544/3419835294",
+      "rewardedAdUnitId": "ca-app-pub-3940256099942544/5354046379",
+      "appId": "ca-app-pub-3940256099942544~3347511713",
+      "banner": "ca-app-pub-3940256099942544/6300978111",
+      "interstitial": "ca-app-pub-3940256099942544/1033173712",
+      "rewarded": "ca-app-pub-3940256099942544/5354046379",
+      "rewardedVideoAdUnitId": "ca-app-pub-3940256099942544/5354046379",
+      "appOpen": "ca-app-pub-3940256099942544/3419835294"
+    },
+    "ios": {
+      "bannerAdUnitId": "ca-app-pub-3940256099942544/2934735716",
+      "interstitialAdUnitId": "ca-app-pub-3940256099942544/4411468910",
+      "appOpenAdUnitId": "ca-app-pub-3940256099942544/5662855259",
+      "rewardedAdUnitId": "ca-app-pub-3940256099942544/5354046379",
+      "appId": "ca-app-pub-3940256099942544~1458002511",
+      "banner": "ca-app-pub-3940256099942544/2934735716",
+      "interstitial": "ca-app-pub-3940256099942544/4411468910",
+      "rewarded": "ca-app-pub-3940256099942544/5354046379",
+      "rewardedVideoAdUnitId": "ca-app-pub-3940256099942544/5354046379",
+      "appOpen": "ca-app-pub-3940256099942544/5662855259"
+    }
+  },
+  "game": {
+    "url": "https://playhop.com/dist-app/278796?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "loader": {
+      "enabled": true,
+      "duration": 10
+    },
+    "interstitial": {
+      "enabled": true,
+      "interval": 90,
+      "countdownPosition": "topLeft"
+    },
+    "menu": {
+      "columns": 4,
+      "fab": {
+        "image": "assets/pack/dff185b7ed13b2de2335117a.png"
+      },
+      "buttons": {
+        "reload": {
+          "image": "assets/pack/reload.png"
+        },
+        "exit": {
+          "image": "assets/pack/f3913c2570a541ed718be75d.png"
+        }
+      }
+    },
+    "enabled": true
+  },
+  "screens": {
+    "home": {
+      "interstitial": {
+        "enabled": true
+      },
+      "buttons": {
+        "share": {
+          "image": "assets/pack/share.png",
+          "message": "Check out this amazing game!",
+          "enabled": true
+        },
+        "rate": {
+          "image": "assets/pack/rate.png",
+          "enabled": true
+        },
+        "moreGames": {
+          "enabled": false
+        }
+      },
+      "enabled": true,
+      "images": {
+        "background": "assets/pack/c7ffa12aea3480ba8e579b43.png",
+        "play": "assets/pack/8b4bb818ae2d569da34f4843.png"
+      }
+    },
+    "splash": {
+      "images": {
+        "background": "assets/pack/c7ffa12aea3480ba8e579b43.png",
+        "play": "assets/pack/8b4bb818ae2d569da34f4843.png"
+      },
+      "progressBar": {
+        "width": 300,
+        "height": 30,
+        "borderRadius": 100,
+        "gradientColors": [
+          "#E571F4",
+          "#1239FD"
+        ],
+        "loaderPosition": "center"
+      }
+    },
+    "genderSelection": {
+      "enabled": false
+    },
+    "userInfo": {
+      "enabled": false
+    },
+    "difficulty": {
+      "enabled": false
+    },
+    "moreGames": {
+      "enabled": false
+    }
+  },
+  "subscription": {
+    "enabled": false,
+    "types": [
+      "weekly",
+      "monthly",
+      "lifetime"
+    ],
+    "productIds": {
+      "android": "subscription_no_ads",
+      "ios": "subscription_no_ads"
+    },
+    "popup": {
+      "images": {
+        "background": "assets/pack/noadspopup.png",
+        "priceTag": "assets/pack/pricetag.png"
+      },
+      "footer": {
+        "privacy": {
+          "text": "Privacy Policy",
+          "url": ""
+        },
+        "terms": {
+          "text": "Terms of Use",
+          "url": "https://www.apple.com/legal/internet-services/itunes/"
+        }
+      },
+      "content": {
+        "title": {
+          "text": ""
+        },
+        "subtitle": {
+          "text": ""
+        },
+        "price": {
+          "text": "$7.99"
+        }
+      }
+    }
+  },
+  "theme": {
+    "primaryColor": "#6366F1",
+    "accentColor": "#EC4899",
+    "errorColor": "#F44336"
+  },
+  "meta": {
+    "appleDeveloperAccountId": "bc0959a42169db0159817ecb",
+    "appleDeveloperAccountName": "Abdel Ben"
+  }
+}
