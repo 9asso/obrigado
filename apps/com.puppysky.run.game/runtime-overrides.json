@@ -3,7 +3,7 @@
     "title": "Puppy Sky Run",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.puppysky.run.game",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.puppysky.run.game",
     "version": "1.0.0",
     "buildNumber": "1",
@@ -14,9 +14,9 @@
     "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
   },
   "admob": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
-    "enableAppOpenAd": true,
+    "enableAppOpenAd": false,
     "android": {
       "appId": "ca-app-pub-5080833301669041~0000000000",
       "bannerAdUnitId": "ca-app-pub-5080833301669041/0000000000",
@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/551775?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -93,8 +93,7 @@
         "height": 30,
         "borderRadius": 100,
         "gradientColors": [
-          "#fc9918",
-          "#fd5912"
+          "#12B6FD"
         ],
         "loaderPosition": "center"
       }
