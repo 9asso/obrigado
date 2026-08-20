@@ -5,8 +5,8 @@
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.kids.coloring.game",
     "identifierId": "com.kids.coloring.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": "2",
     "orientation": "portrait",
     "packageIdentifier": "com.kids.coloring.game"
   },
