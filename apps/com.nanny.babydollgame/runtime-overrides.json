@@ -1,12 +1,12 @@
 {
   "app": {
-    "title": "Dream Nanny Baby Doll Game",
+    "title": "Dream Outfit Baby Doll Game",
     "description": "A bright portrait game hub with rewards, missions, friends, games, and settings.",
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.nanny.babydollgame",
     "identifierId": "com.nanny.babydollgame",
-    "version": "3.0.0",
-    "buildNumber": "3",
+    "version": "4.0.0",
+    "buildNumber": "4",
     "orientation": "portrait",
     "packageIdentifier": "com.nanny.babydollgame"
   },
@@ -29,7 +29,7 @@
   },
   "theme": {
     "buttons": {
-      "startPlay": "#EB468A",
+      "startPlay": "#FC72AF",
       "secretsMissions": "#FCC502"
     },
     "primaryColor": "#61C80F",
@@ -326,6 +326,12 @@
       "images": {
         "background": "assets/images/bg.png"
       }
+    }
+  },
+  "assets": {
+    "icons": {
+      "diamonds": "assets/icons/diamonds.png",
+      "coins": "assets/icons/coins.png"
     }
   }
 }
