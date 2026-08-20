@@ -5,8 +5,8 @@
     "packageName": "com.lost.island.game",
     "orientation": "portrait",
     "identifierId": "com.lost.island.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "5.0.0",
+    "buildNumber": 5,
     "enableSplashScreen": true,
     "packageIdentifier": "com.lost.island.game"
   },
