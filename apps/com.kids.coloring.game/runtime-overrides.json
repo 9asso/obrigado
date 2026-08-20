@@ -5,8 +5,8 @@
     "packageName": "com.kids.coloring.game",
     "orientation": "portrait",
     "identifierId": "com.kids.coloring.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "3.0.0",
+    "buildNumber": 3,
     "enableSplashScreen": true,
     "packageIdentifier": "com.kids.coloring.game"
   },
@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/555113?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -93,8 +93,7 @@
         "height": 30,
         "borderRadius": 100,
         "gradientColors": [
-          "#fc9918",
-          "#fd5912"
+          "#1297FD"
         ],
         "loaderPosition": "center"
       }
