@@ -5,8 +5,8 @@
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.bocamusic.newgame",
     "identifierId": "com.bocamusic.newgame",
-    "version": "2.0.0",
-    "buildNumber": "2",
+    "version": "3.0.0",
+    "buildNumber": "3",
     "orientation": "portrait",
     "packageIdentifier": "com.bocamusic.newgame"
   },
@@ -25,7 +25,7 @@
     }
   },
   "ui": {
-    "showHomeControls": false
+    "showHomeControls": true
   },
   "theme": {
     "buttons": {
