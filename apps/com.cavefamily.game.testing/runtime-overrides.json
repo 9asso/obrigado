@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://hluitrd-n0igt8-s6l8f13.vercel.app/?app=546511",
+    "url": "https://playhop.com/dist-app/546511?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -143,6 +143,6 @@
   "meta": {
     "appleDeveloperAccountId": "8f46ab8bed7fa98b6b6ea306",
     "appleDeveloperAccountName": "Acharki",
-    "gameUrlSource": "applePage"
+    "gameUrlSource": "playhop"
   }
 }
