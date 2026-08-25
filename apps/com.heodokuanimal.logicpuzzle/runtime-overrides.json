@@ -5,8 +5,8 @@
     "packageName": "com.heodokuanimal.logicpuzzle",
     "orientation": "portrait",
     "identifierId": "com.heodokuanimal.logicpuzzle",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": 2,
     "enableSplashScreen": true,
     "packageIdentifier": "com.heodokuanimal.logicpuzzle"
   },
