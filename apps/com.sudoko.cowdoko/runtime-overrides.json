@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/000000?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "url": "https://playhop.com/dist-app/508969?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "selection": {
       "games": [
         {
@@ -119,8 +119,8 @@
         "height": 25,
         "borderRadius": 100,
         "gradientColors": [
-          "#000000",
-          "#000000"
+          "#1778C8",
+          "#DD7E28"
         ],
         "loaderPosition": "center"
       },
