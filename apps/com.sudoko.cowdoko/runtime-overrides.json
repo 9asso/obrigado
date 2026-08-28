@@ -14,9 +14,9 @@
     "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
   },
   "applovin": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
-    "enableAppOpenAd": true,
+    "enableAppOpenAd": false,
     "sdkKey": "",
     "android": {
       "bannerAdUnitId": "",
