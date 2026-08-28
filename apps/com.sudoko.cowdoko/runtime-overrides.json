@@ -1,0 +1,148 @@
+{
+  "app": {
+    "title": "Cow Sudoko",
+    "icon": "assets/pack/appicon.png",
+    "packageName": "com.sudoko.cowdoko",
+    "orientation": "landscape",
+    "identifierId": "com.sudoko.cowdoko",
+    "version": "1.0.0",
+    "buildNumber": "1",
+    "enableSplashScreen": true,
+    "packageIdentifier": "com.sudoko.cowdoko"
+  },
+  "runtimeOverrides": {
+    "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
+  },
+  "applovin": {
+    "enabled": true,
+    "testMode": false,
+    "enableAppOpenAd": true,
+    "sdkKey": "",
+    "android": {
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "rewardedAdUnitId": "",
+      "appOpenAdUnitId": ""
+    },
+    "ios": {
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "rewardedAdUnitId": "",
+      "appOpenAdUnitId": ""
+    }
+  },
+  "proxies": {
+    "app": {
+      "enabled": false,
+      "baseUrl": ""
+    },
+    "gameScreen": {
+      "enabled": false,
+      "baseUrl": "",
+      "listUrl": "https://storage.googleapis.com/appsgenre-configs/proxies/ru.txt"
+    }
+  },
+  "game": {
+    "url": "https://playhop.com/dist-app/000000?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "selection": {
+      "games": [
+        {
+          "title": "FIRST PUZZLE",
+          "image": "assets/pack/puzzle_first.png",
+          "url": "https://treespuzzle.com/her-trees-first-puzzle"
+        },
+        {
+          "title": "PUZZLE DREAM",
+          "image": "assets/pack/puzzle_dream.jpg",
+          "url": "https://game.doritosscript.com/puzzle-dream/index.html"
+        },
+        {
+          "title": "PUZZLE HOUSE",
+          "image": "assets/pack/puzzle_house.jpg",
+          "url": "https://game.doritosscript.com/her-trees-puzzle-house/index.html"
+        }
+      ]
+    },
+    "loader": {
+      "enabled": true,
+      "duration": 10
+    },
+    "interstitial": {
+      "enabled": true,
+      "interval": 90,
+      "countdownPosition": "topLeft"
+    },
+    "menu": {
+      "columns": 4,
+      "fab": {
+        "image": "assets/pack/circle.png"
+      },
+      "buttons": {
+        "reload": {
+          "image": "assets/pack/reload.png"
+        },
+        "exit": {
+          "image": "assets/pack/exit.png"
+        }
+      }
+    },
+    "enabled": true
+  },
+  "screens": {
+    "home": {
+      "interstitial": {
+        "enabled": true
+      },
+      "buttons": {
+        "share": {
+          "image": "assets/pack/share.png",
+          "message": "Check out this amazing game!",
+          "enabled": true
+        },
+        "rate": {
+          "image": "assets/pack/rate.png",
+          "enabled": true
+        },
+        "moreGames": {
+          "enabled": false
+        }
+      },
+      "enabled": true
+    },
+    "splash": {
+      "images": {
+        "background": "assets/pack/bg.png",
+        "play": "assets/pack/play.png"
+      },
+      "progressBar": {
+        "width": 360,
+        "height": 25,
+        "borderRadius": 100,
+        "gradientColors": [
+          "#000000",
+          "#000000"
+        ],
+        "loaderPosition": "center"
+      },
+      "loaderPosition": "bottom"
+    },
+    "genderSelection": {
+      "enabled": false
+    },
+    "userInfo": {
+      "enabled": false
+    },
+    "difficulty": {
+      "enabled": false
+    },
+    "moreGames": {
+      "enabled": false
+    }
+  },
+  "theme": {
+    "primaryColor": "#6366F1",
+    "accentColor": "#EC4899",
+    "errorColor": "#F44336"
+  },
+  "meta": {}
+}
