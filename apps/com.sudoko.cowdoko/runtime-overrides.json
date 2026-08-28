@@ -14,15 +14,19 @@
     "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
   },
   "applovin": {
-    "enabled": false,
+    "enabled": true,
     "testMode": false,
     "enableAppOpenAd": false,
-    "sdkKey": "",
+    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "appOpenAdUnitId": ""
+      "bannerAdUnitId": "d2fe6338dc3f647c",
+      "interstitialAdUnitId": "af46fcd211937c30",
+      "rewardedAdUnitId": "ab1ef1126608da39",
+      "appOpenAdUnitId": "",
+      "banner": "d2fe6338dc3f647c",
+      "interstitial": "af46fcd211937c30",
+      "rewarded": "ab1ef1126608da39",
+      "rewardedVideoAdUnitId": "ab1ef1126608da39"
     },
     "ios": {
       "bannerAdUnitId": "",
