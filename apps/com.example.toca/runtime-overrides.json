@@ -1,0 +1,147 @@
+{
+  "app": {
+    "title": "Toca Life",
+    "icon": "assets/pack/appicon.png",
+    "packageName": "com.example.toca",
+    "orientation": "portrait",
+    "identifierId": "com.example.toca",
+    "version": "1.0.0",
+    "buildNumber": "1",
+    "enableSplashScreen": true,
+    "packageIdentifier": "com.example.toca"
+  },
+  "runtimeOverrides": {
+    "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
+  },
+  "admob": {
+    "enabled": true,
+    "testMode": false,
+    "enableAppOpenAd": true,
+    "android": {
+      "appId": "ca-app-pub-5080833301669041~0000000000",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "rewardedAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "banner": "ca-app-pub-5080833301669041/0000000000",
+      "interstitial": "ca-app-pub-5080833301669041/0000000000",
+      "rewarded": "ca-app-pub-5080833301669041/0000000000",
+      "rewardedVideoAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "appOpen": "ca-app-pub-5080833301669041/0000000000"
+    },
+    "ios": {
+      "appId": "ca-app-pub-5080833301669041~0000000000",
+      "bannerAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "interstitialAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "appOpenAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "rewardedAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "banner": "ca-app-pub-5080833301669041/0000000000",
+      "interstitial": "ca-app-pub-5080833301669041/0000000000",
+      "rewarded": "ca-app-pub-5080833301669041/0000000000",
+      "rewardedVideoAdUnitId": "ca-app-pub-5080833301669041/0000000000",
+      "appOpen": "ca-app-pub-5080833301669041/0000000000"
+    }
+  },
+  "game": {
+    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "loader": {
+      "enabled": true,
+      "duration": 10
+    },
+    "interstitial": {
+      "enabled": true,
+      "interval": 90,
+      "countdownPosition": "topLeft"
+    },
+    "menu": {
+      "columns": 4,
+      "fab": {
+        "image": "assets/pack/circle.png"
+      },
+      "buttons": {
+        "reload": {
+          "image": "assets/pack/reload.png"
+        },
+        "exit": {
+          "image": "assets/pack/exit.png"
+        }
+      }
+    }
+  },
+  "screens": {
+    "home": {
+      "interstitial": {
+        "enabled": true
+      },
+      "buttons": {
+        "share": {
+          "image": "assets/pack/share.png",
+          "message": "Check out this amazing game!"
+        },
+        "rate": {
+          "image": "assets/pack/rate.png"
+        }
+      }
+    },
+    "splash": {
+      "images": {
+        "background": "assets/pack/bg.png",
+        "play": "assets/pack/play.png"
+      },
+      "progressBar": {
+        "width": 300,
+        "height": 30,
+        "borderRadius": 100,
+        "gradientColors": [
+          "#fc9918",
+          "#fd5912"
+        ],
+        "loaderPosition": "center"
+      }
+    }
+  },
+  "subscription": {
+    "enabled": true,
+    "types": [
+      "weekly",
+      "monthly",
+      "lifetime"
+    ],
+    "productIds": {
+      "android": {
+        "weekly": "weekly_no_ads",
+        "monthly": "monthly_no_ads",
+        "lifetime": "lifetime_no_ads"
+      },
+      "ios": {
+        "weekly": "weekly_no_ads",
+        "monthly": "monthly_no_ads",
+        "lifetime": "lifetime_no_ads"
+      }
+    },
+    "popup": {
+      "images": {
+        "background": "assets/pack/noadspopup.png",
+        "priceTag": "assets/pack/pricetag.png"
+      },
+      "footer": {
+        "privacy": {
+          "text": "Privacy Policy",
+          "url": ""
+        },
+        "terms": {
+          "text": "Terms of Use",
+          "url": "https://www.apple.com/legal/internet-services/itunes/"
+        }
+      }
+    }
+  },
+  "theme": {
+    "primaryColor": "#6366F1",
+    "accentColor": "#EC4899"
+  },
+  "meta": {
+    "appleDeveloperAccountId": "8f46ab8bed7fa98b6b6ea306",
+    "appleDeveloperAccountName": "Acharki"
+  }
+}
