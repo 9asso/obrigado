@@ -3,7 +3,7 @@
     "title": "Toca Life",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.example.toca",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.example.toca",
     "version": "1.0.0",
     "buildNumber": "1",
@@ -16,7 +16,7 @@
   "admob": {
     "enabled": true,
     "testMode": false,
-    "enableAppOpenAd": true,
+    "enableAppOpenAd": false,
     "android": {
       "appId": "ca-app-pub-5080833301669041~0000000000",
       "bannerAdUnitId": "ca-app-pub-5080833301669041/0000000000",
@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/307054?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -93,8 +93,7 @@
         "height": 30,
         "borderRadius": 100,
         "gradientColors": [
-          "#fc9918",
-          "#fd5912"
+          "#FF80D7"
         ],
         "loaderPosition": "center"
       }
