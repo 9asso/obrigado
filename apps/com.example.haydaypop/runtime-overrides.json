@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "xxxxxx",
+    "title": "akhskasd",
     "description": "A bright portrait game hub with rewards, missions, friends, games, and settings.",
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.example.haydaypop",
@@ -35,21 +35,21 @@
     "primaryColor": "#61C80F",
     "accentColor": "#F81D6B"
   },
-  "applovin": {
-    "enabled": true,
-    "testMode": false,
-    "sdkKey": "",
+  "admob": {
+    "enabled": false,
     "android": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "nativeAdUnitId": ""
+      "appId": "",
+      "banner": "",
+      "interstitial": "",
+      "rewarded": "",
+      "native": ""
     },
     "ios": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "nativeAdUnitId": ""
+      "appId": "",
+      "banner": "",
+      "interstitial": "",
+      "rewarded": "",
+      "native": ""
     }
   },
   "friends": [
@@ -318,7 +318,7 @@
     }
   ],
   "meta": {
-    "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
-    "appleDeveloperAccountName": "Account 1"
+    "appleDeveloperAccountId": "bc0959a42169db0159817ecb",
+    "appleDeveloperAccountName": "Abdel Ben"
   }
 }
