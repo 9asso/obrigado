@@ -15,7 +15,7 @@
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
   },
   "game": {
-    "url": "https://playhop.com/dist-app/547198?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/547198?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "menu": {
       "fab": {
         "position": "topLeft",
@@ -326,5 +326,10 @@
     "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
     "appleDeveloperAccountName": "Account 1",
     "gameUrlSource": "playhop"
+  },
+  "assets": {
+    "icons": {
+      "start": "assets/icons/start.png"
+    }
   }
 }
