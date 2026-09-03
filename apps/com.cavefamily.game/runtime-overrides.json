@@ -1,330 +1,81 @@
 {
   "app": {
     "title": "Cave Family Lost in Time",
-    "description": "A bright portrait game hub with rewards, missions, friends, games, and settings.",
-    "icon": "assets/images/appicon.jpg",
     "packageName": "com.cavefamily.game",
-    "identifierId": "com.cavefamily.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
     "orientation": "portrait",
+    "version": "1.0.1",
+    "buildNumber": "2",
+    "configurationSource": "bundled",
+    "identifierId": "com.cavefamily.game",
     "packageIdentifier": "com.cavefamily.game"
   },
-  "runtimeOverrides": {
-    "url": "https://raw.githubusercontent.com/9asso/obrigado/main/apps/APP_PACKAGE_NAME/runtime-overrides.json",
-    "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
+  "admob": {
+    "enabled": false,
+    "testMode": false,
+    "enableAppOpenAd": false,
+    "showInterstitialOnPlay": false,
+    "android": {
+      "appId": "",
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "appOpenAdUnitId": "",
+      "rewardedAdUnitId": ""
+    },
+    "ios": {
+      "appId": "",
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "appOpenAdUnitId": "",
+      "rewardedAdUnitId": ""
+    }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/359637?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "url": "https://hluitrd-n0igt8-s6l8f13.vercel.app/?app=546511",
+    "loader": {
+      "enabled": true,
+      "duration": 10
+    },
+    "interstitial": {
+      "enabled": false,
+      "interval": 90,
+      "countdownPosition": "topLeft"
+    },
     "menu": {
       "fab": {
-        "position": "topLeft",
+        "image": "assets/pack/circle.png",
+        "position": "bottomRight",
         "offsetX": 20,
         "offsetY": 20
       }
     }
   },
-  "ui": {
-    "showHomeControls": false
-  },
-  "theme": {
-    "buttons": {
-      "startPlay": "#22A9DF",
-      "secretsMissions": "#FBAB23"
+  "splash": {
+    "images": {
+      "background": "assets/pack/bg.png",
+      "play": "assets/pack/play.png"
     },
-    "primaryColor": "#61C80F",
-    "accentColor": "#F81D6B"
-  },
-  "applovin": {
-    "enabled": true,
-    "testMode": false,
-    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
-    "android": {
-      "bannerAdUnitId": "6f1edf7db79bc711",
-      "interstitialAdUnitId": "e9e76438cec57790",
-      "rewardedAdUnitId": "62913d782980eacb",
-      "nativeAdUnitId": "97b4409f70a13aa3",
-      "banner": "6f1edf7db79bc711",
-      "interstitial": "e9e76438cec57790",
-      "rewarded": "62913d782980eacb",
-      "rewardedVideoAdUnitId": "62913d782980eacb",
-      "native": "97b4409f70a13aa3"
-    },
-    "ios": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "nativeAdUnitId": ""
-    }
-  },
-  "friends": [
-    {
-      "appleIds": [
-        "id1868240963"
-      ],
-      "explicitApps": [
-        "id1868240963"
+    "loaderPosition": "center",
+    "showProgressBar": true,
+    "showLoadingText": true,
+    "loadingText": "Loading game...",
+    "progressBar": {
+      "width": 300,
+      "height": 30,
+      "borderRadius": 100,
+      "gradientColors": [
+        "#E98E16",
+        "#E98E16"
       ]
     }
-  ],
-  "play": [
-    {
-      "title": "Brainrot Arena Online",
-      "coverImage": "https://i.pinimg.com/736x/c9/11/97/c911979f34658cd20d0fe8a30ee3af54.jpg",
-      "url": "https://playhop.com/dist-app/501106?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "arcade",
-        "casual"
-      ],
-      "featured": true
-    },
-    {
-      "title": "Obby: Be a Lucky Block!",
-      "coverImage": "https://i.pinimg.com/736x/02/26/32/0226322377d6386a3aa8cfed8945cf6f.jpg",
-      "url": "https://playhop.com/dist-app/508945?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "for_boys",
-        "casual"
-      ],
-      "featured": true
-    },
-    {
-      "title": "Obby with Friends Online",
-      "coverImage": "https://i.pinimg.com/736x/f3/15/9c/f3159c5b98f5ff8ebf65c31b704a662f.jpg",
-      "url": "https://playhop.com/dist-app/428186?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "arcade",
-        "casual"
-      ],
-      "featured": false
-    },
-    {
-      "title": "Game Builder Bloks",
-      "coverImage": "https://i.pinimg.com/1200x/35/f4/60/35f46058f12a2f4069a96b809a94fa83.jpg",
-      "url": "https://playhop.com/dist-app/458320?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "simulator",
-        "midcore"
-      ],
-      "featured": false
-    },
-    {
-      "title": "Obby: Brainrot Train Chase",
-      "coverImage": "https://i.pinimg.com/736x/5e/31/60/5e3160aa25d4eee75ad06db8621e1cda.jpg",
-      "url": "https://playhop.com/dist-app/495232?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "arcade",
-        "casual"
-      ],
-      "featured": false
-    },
-    {
-      "title": "Aesthetic World of Obby",
-      "coverImage": "https://i.pinimg.com/1200x/54/03/38/5403383d4df5269b54f4aa5a1dbff400.jpg",
-      "url": "https://playhop.com/dist-app/360454?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
-      "orientation": "landscape",
-      "categories": [
-        "arcade",
-        "for_girls"
-      ],
-      "featured": true
-    }
-  ],
-  "promo": {
-    "title": "Doll World",
-    "icon": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/75/ba/3c/75ba3cc7-d539-a957-41f9-e5b1fa5d25a8/Placeholder.mill/400x400bb-75.webp",
-    "url": "https://playhop.com/dist-app/501106?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D"
   },
-  "secrets": [
-    {
-      "coins": 1000,
-      "diamonds": 100,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 2000,
-      "diamonds": 200,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 4000,
-      "diamonds": 400,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 2000,
-      "diamonds": 200,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 2000,
-      "diamonds": 200,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 2000,
-      "diamonds": 200,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 3000,
-      "diamonds": 300,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 3000,
-      "diamonds": 300,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 3000,
-      "diamonds": 300,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 4000,
-      "diamonds": 400,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 4000,
-      "diamonds": 400,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 4000,
-      "diamonds": 400,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 5000,
-      "diamonds": 500,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 5000,
-      "diamonds": 500,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 5000,
-      "diamonds": 500,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 6000,
-      "diamonds": 600,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 6000,
-      "diamonds": 600,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 6000,
-      "diamonds": 600,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 7000,
-      "diamonds": 700,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 7000,
-      "diamonds": 700,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 7000,
-      "diamonds": 700,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 8000,
-      "diamonds": 800,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 8000,
-      "diamonds": 800,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 8000,
-      "diamonds": 800,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 9000,
-      "diamonds": 900,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 9000,
-      "diamonds": 900,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 9000,
-      "diamonds": 900,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 10000,
-      "diamonds": 1000,
-      "prize": "https://i.pinimg.com/736x/62/80/fd/6280fda26d1a0f4e7599d9c307d9f7a6.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 10000,
-      "diamonds": 1000,
-      "prize": "https://i.pinimg.com/1200x/fb/ea/54/fbea5473fd3eb1977822cd5f530ab0d1.jpg",
-      "enabled": false
-    },
-    {
-      "coins": 10000,
-      "diamonds": 1000,
-      "prize": "https://i.pinimg.com/736x/e2/75/e3/e275e3696d3689060ed34582974fc890.jpg",
-      "enabled": false
-    }
-  ],
+  "theme": {
+    "primaryColor": "#6366F1",
+    "accentColor": "#EC4899"
+  },
   "meta": {
-    "gameUrlSource": "playhop",
-    "googlePlayConsoleAccountId": "2d82e8043b8505f0bc68fe74",
-    "googlePlayConsoleAccountName": "GP PLAYDEVIN"
+    "gameUrlSource": "applePage"
+  },
+  "runtimeOverrides": {
+    "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
   }
 }
