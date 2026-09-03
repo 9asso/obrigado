@@ -5,8 +5,8 @@
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.heodokuanimal.logicpuzzle",
     "identifierId": "com.heodokuanimal.logicpuzzle",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": "2",
     "orientation": "portrait",
     "packageIdentifier": "com.heodokuanimal.logicpuzzle"
   },
@@ -25,7 +25,7 @@
     }
   },
   "ui": {
-    "showHomeControls": true
+    "showHomeControls": false
   },
   "theme": {
     "buttons": {
@@ -38,7 +38,7 @@
   "applovin": {
     "enabled": true,
     "testMode": false,
-    "sdkKey": "",
+    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
       "bannerAdUnitId": "",
       "interstitialAdUnitId": "",
@@ -46,10 +46,15 @@
       "nativeAdUnitId": ""
     },
     "ios": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "nativeAdUnitId": ""
+      "bannerAdUnitId": "7fb6093b9a5b1eee",
+      "interstitialAdUnitId": "7722792b82b33948",
+      "rewardedAdUnitId": "4a123c5f78140127",
+      "nativeAdUnitId": "6fb737bdede5eaf6",
+      "banner": "7fb6093b9a5b1eee",
+      "interstitial": "7722792b82b33948",
+      "rewarded": "4a123c5f78140127",
+      "rewardedVideoAdUnitId": "4a123c5f78140127",
+      "native": "6fb737bdede5eaf6"
     }
   },
   "friends": [
