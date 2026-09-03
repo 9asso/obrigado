@@ -5,8 +5,8 @@
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.brainy.escape.girl",
     "identifierId": "com.brainy.escape.girl",
-    "version": "7.0.0",
-    "buildNumber": "7",
+    "version": "9.0.0",
+    "buildNumber": "9",
     "orientation": "portrait",
     "packageIdentifier": "com.brainy.escape.girl"
   },
@@ -15,7 +15,7 @@
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
   },
   "game": {
-    "url": "https://playhop.com/dist-app/141019?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/141019?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "menu": {
       "fab": {
         "position": "topLeft",
@@ -36,7 +36,7 @@
     "accentColor": "#F81D6B"
   },
   "applovin": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
     "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
@@ -324,6 +324,14 @@
   ],
   "meta": {
     "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
-    "appleDeveloperAccountName": "Account 1"
+    "appleDeveloperAccountName": "Account 1",
+    "gameUrlSource": "playhop"
+  },
+  "screens": {
+    "splash": {
+      "images": {
+        "background": "assets/images/bg.png"
+      }
+    }
   }
 }
