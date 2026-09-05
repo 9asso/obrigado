@@ -5,8 +5,8 @@
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.veritymods.modforminecraft",
     "identifierId": "com.veritymods.modforminecraft",
-    "version": "2.0.0",
-    "buildNumber": "2",
+    "version": "3.0.0",
+    "buildNumber": "3",
     "orientation": "landscape",
     "packageIdentifier": "com.veritymods.modforminecraft"
   },
