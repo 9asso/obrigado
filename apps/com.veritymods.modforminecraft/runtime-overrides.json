@@ -29,8 +29,8 @@
   },
   "theme": {
     "buttons": {
-      "startPlay": "#4EC510",
-      "secretsMissions": "#FF314B"
+      "startPlay": "#FFB43F",
+      "secretsMissions": "#94E3FE"
     },
     "primaryColor": "#61C80F",
     "accentColor": "#F81D6B"
