@@ -15,7 +15,7 @@
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
   },
   "game": {
-    "url": "https://playhop.com/dist-app/555572?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/555572?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "menu": {
       "fab": {
         "position": "topLeft",
@@ -36,9 +36,9 @@
     "accentColor": "#F81D6B"
   },
   "applovin": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
-    "sdkKey": "",
+    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
       "bannerAdUnitId": "",
       "interstitialAdUnitId": "",
@@ -46,10 +46,15 @@
       "nativeAdUnitId": ""
     },
     "ios": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": "",
-      "nativeAdUnitId": ""
+      "bannerAdUnitId": "9e95fab215d7a9f7",
+      "interstitialAdUnitId": "ae7c1badef8ed56c",
+      "rewardedAdUnitId": "e4c04236bf879e5f",
+      "nativeAdUnitId": "0eea2e3bc470bc40",
+      "banner": "9e95fab215d7a9f7",
+      "interstitial": "ae7c1badef8ed56c",
+      "rewarded": "e4c04236bf879e5f",
+      "rewardedVideoAdUnitId": "e4c04236bf879e5f",
+      "native": "0eea2e3bc470bc40"
     }
   },
   "friends": [
@@ -321,5 +326,18 @@
     "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
     "appleDeveloperAccountName": "Account 1",
     "gameUrlSource": "playhop"
+  },
+  "screens": {
+    "splash": {
+      "images": {
+        "background": "assets/images/bg.png"
+      }
+    }
+  },
+  "assets": {
+    "icons": {
+      "close": "assets/icons/close.png",
+      "start": "assets/icons/start.png"
+    }
   }
 }
