@@ -36,7 +36,7 @@
     "accentColor": "#F81D6B"
   },
   "applovin": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
     "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
