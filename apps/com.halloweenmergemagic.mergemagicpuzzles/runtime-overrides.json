@@ -1,12 +1,12 @@
 {
   "app": {
-    "title": "Halloween Merge House Design",
+    "title": "Tap Away Story Tile Puzzle",
     "description": "A bright portrait game hub with rewards, missions, friends, games, and settings.",
     "icon": "assets/images/appicon.jpg",
     "packageName": "com.halloweenmergemagic.mergemagicpuzzles",
     "identifierId": "com.halloweenmergemagic.mergemagicpuzzles",
-    "version": "5.0.0",
-    "buildNumber": "5",
+    "version": "6.0.0",
+    "buildNumber": "6",
     "orientation": "portrait",
     "packageIdentifier": "com.halloweenmergemagic.mergemagicpuzzles"
   },
@@ -15,7 +15,7 @@
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
   },
   "game": {
-    "url": "https://playhop.com/dist-app/281150?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/281150?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "menu": {
       "fab": {
         "position": "topLeft",
@@ -323,14 +323,21 @@
     }
   ],
   "meta": {
-    "appleDeveloperAccountId": "bc0959a42169db0159817ecb",
-    "appleDeveloperAccountName": "Abdel Ben"
+    "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
+    "appleDeveloperAccountName": "Account 1",
+    "gameUrlSource": "playhop"
   },
   "screens": {
     "splash": {
       "images": {
         "background": "assets/images/bg.png"
       }
+    }
+  },
+  "assets": {
+    "icons": {
+      "close": "assets/icons/close.png",
+      "start": "assets/icons/start.png"
     }
   }
 }
