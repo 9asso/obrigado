@@ -14,7 +14,7 @@
     "baseUrl": "https://storage.googleapis.com/appsgenre-configs"
   },
   "admob": {
-    "enabled": true,
+    "enabled": false,
     "testMode": false,
     "enableAppOpenAd": false,
     "android": {
