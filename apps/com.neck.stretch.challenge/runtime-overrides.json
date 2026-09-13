@@ -1,0 +1,88 @@
+{
+  "app": {
+    "title": "Neck Stretch Challenge",
+    "icon": "assets/pack/appicon.png",
+    "packageName": "com.neck.stretch.challenge",
+    "orientation": "portrait",
+    "identifierId": "com.neck.stretch.challenge",
+    "version": "1.0.0",
+    "buildNumber": "1",
+    "enableSplashScreen": true,
+    "packageIdentifier": "com.neck.stretch.challenge"
+  },
+  "applovin": {
+    "enabled": true,
+    "testMode": false,
+    "enableAppOpenAd": true,
+    "sdkKey": "",
+    "android": {
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "appOpenAdUnitId": "",
+      "rewardedAdUnitId": ""
+    },
+    "ios": {
+      "bannerAdUnitId": "",
+      "interstitialAdUnitId": "",
+      "appOpenAdUnitId": "",
+      "rewardedAdUnitId": ""
+    }
+  },
+  "game": {
+    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "loader": {
+      "enabled": true,
+      "duration": 10
+    },
+    "interstitial": {
+      "enabled": true,
+      "interval": 90,
+      "countdownPosition": "topLeft"
+    },
+    "menu": {
+      "fab": {
+        "image": "assets/pack/circle.png",
+        "position": "bottomRight",
+        "offsetX": 20,
+        "offsetY": 20
+      }
+    }
+  },
+  "screens": {
+    "home": {
+      "interstitial": {
+        "enabled": true
+      }
+    },
+    "splash": {
+      "images": {
+        "background": "assets/pack/bg.png",
+        "play": "assets/pack/play.png"
+      },
+      "progressBar": {
+        "width": 300,
+        "height": 30,
+        "borderRadius": 100,
+        "gradientColors": [
+          "#FC9918",
+          "#FD5912"
+        ],
+        "loaderPosition": "center",
+        "show": true,
+        "showLoadingText": false,
+        "loadingText": "Loading..."
+      }
+    }
+  },
+  "theme": {
+    "primaryColor": "#673AB7",
+    "accentColor": "#FFC107"
+  },
+  "meta": {
+    "appleDeveloperAccountId": "87d5c89ff85b68836c019420",
+    "appleDeveloperAccountName": "Aya Samadi"
+  },
+  "runtimeOverrides": {
+    "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
+  }
+}
