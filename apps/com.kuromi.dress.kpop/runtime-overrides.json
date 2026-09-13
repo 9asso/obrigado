@@ -3,7 +3,7 @@
     "title": "Kuromi Dress Kpop",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.kuromi.dress.kpop",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.kuromi.dress.kpop",
     "version": "1.0.0",
     "buildNumber": "1",
