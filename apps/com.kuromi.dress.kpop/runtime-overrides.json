@@ -78,7 +78,7 @@
   "meta": {
     "appleDeveloperAccountId": "87d5c89ff85b68836c019420",
     "appleDeveloperAccountName": "Aya Samadi",
-    "gameUrlSource": "applePage"
+    "gameUrlSource": "playhop"
   },
   "runtimeOverrides": {
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
