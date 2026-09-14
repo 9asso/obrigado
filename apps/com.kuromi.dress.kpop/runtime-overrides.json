@@ -38,7 +38,7 @@
     },
     "menu": {
       "fab": {
-        "image": "assets/pack/circle.png",
+        "image": "assets/pack/close.png",
         "position": "bottomRight",
         "offsetX": 20,
         "offsetY": 20
@@ -63,7 +63,7 @@
         "gradientColors": [
           "#AA61E5"
         ],
-        "loaderPosition": "center",
+        "loaderPosition": "bottom",
         "show": true,
         "showLoadingText": false,
         "loadingText": "Loading..."
@@ -75,8 +75,8 @@
     "accentColor": "#FFC107"
   },
   "meta": {
-    "appleDeveloperAccountId": "87d5c89ff85b68836c019420",
-    "appleDeveloperAccountName": "Aya Samadi",
+    "appleDeveloperAccountId": "f223d6697c88de06251077cc",
+    "appleDeveloperAccountName": "Rayan",
     "gameUrlSource": "playhop"
   },
   "runtimeOverrides": {
