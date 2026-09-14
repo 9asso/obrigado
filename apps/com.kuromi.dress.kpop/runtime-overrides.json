@@ -59,10 +59,9 @@
       "progressBar": {
         "width": 300,
         "height": 30,
-        "borderRadius": 100,
+        "borderRadius": 500,
         "gradientColors": [
-          "#FC9918",
-          "#FD5912"
+          "#AA61E5"
         ],
         "loaderPosition": "center",
         "show": true,
