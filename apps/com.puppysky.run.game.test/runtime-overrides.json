@@ -3,7 +3,7 @@
     "title": "Puppy Sky Run",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.puppysky.run.game.test",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.puppysky.run.game.test",
     "version": "1.0.0",
     "buildNumber": "1",
