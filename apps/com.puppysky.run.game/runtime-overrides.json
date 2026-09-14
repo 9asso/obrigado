@@ -3,10 +3,10 @@
     "title": "Puppy Sky Run",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.puppysky.run.game",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.puppysky.run.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": 2,
     "enableSplashScreen": true,
     "packageIdentifier": "com.puppysky.run.game"
   },
@@ -77,7 +77,8 @@
   },
   "meta": {
     "appleDeveloperAccountId": "f223d6697c88de06251077cc",
-    "appleDeveloperAccountName": "Rai Morgan"
+    "appleDeveloperAccountName": "Acharki Rayan",
+    "gameUrlSource": "playhop"
   },
   "runtimeOverrides": {
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
