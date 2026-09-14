@@ -26,7 +26,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/551775?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -61,8 +61,8 @@
         "height": 30,
         "borderRadius": 100,
         "gradientColors": [
-          "#FC9918",
-          "#FD5912"
+          "#6BEB3D",
+          "#7EDB5C"
         ],
         "loaderPosition": "bottom",
         "show": true,
