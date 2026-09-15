@@ -61,8 +61,8 @@
         "height": 30,
         "borderRadius": 100,
         "gradientColors": [
-          "#FC9918",
-          "#FD5912"
+          "#B152FF",
+          "#12AEFD"
         ],
         "loaderPosition": "bottom",
         "show": true,
