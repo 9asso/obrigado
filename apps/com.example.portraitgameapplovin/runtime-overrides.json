@@ -13,20 +13,24 @@
   "applovin": {
     "enabled": true,
     "testMode": false,
-    "sdkKey": "",
+    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
       "bannerAdUnitId": "",
       "interstitialAdUnitId": "",
       "rewardedAdUnitId": ""
     },
     "ios": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": ""
+      "bannerAdUnitId": "xxxx",
+      "interstitialAdUnitId": "ppppp",
+      "rewardedAdUnitId": "uuuuu",
+      "banner": "xxxx",
+      "interstitial": "ppppp",
+      "rewarded": "uuuuu",
+      "rewardedVideoAdUnitId": "uuuuu"
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -77,7 +81,8 @@
   },
   "meta": {
     "appleDeveloperAccountId": "26c7d7e700a2a1ccc4c7f34e",
-    "appleDeveloperAccountName": "Rida Yazidi"
+    "appleDeveloperAccountName": "Rida Yazidi",
+    "gameUrlSource": "playhop"
   },
   "runtimeOverrides": {
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
