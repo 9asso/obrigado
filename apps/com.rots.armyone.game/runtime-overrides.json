@@ -3,7 +3,7 @@
     "title": "Doll Dress Kpop",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.rots.armyone.game",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.rots.armyone.game",
     "version": "1.0.0",
     "buildNumber": "1",
@@ -26,7 +26,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/405989?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
