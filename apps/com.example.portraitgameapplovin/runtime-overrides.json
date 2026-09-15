@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "Portrait Game AppLovin",
+    "title": "Angry Birds",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.example.portraitgameapplovin",
     "orientation": "portrait",
@@ -13,18 +13,15 @@
   "applovin": {
     "enabled": true,
     "testMode": false,
-    "enableAppOpenAd": true,
     "sdkKey": "",
     "android": {
       "bannerAdUnitId": "",
       "interstitialAdUnitId": "",
-      "appOpenAdUnitId": "",
       "rewardedAdUnitId": ""
     },
     "ios": {
       "bannerAdUnitId": "",
       "interstitialAdUnitId": "",
-      "appOpenAdUnitId": "",
       "rewardedAdUnitId": ""
     }
   },
@@ -41,7 +38,7 @@
     },
     "menu": {
       "fab": {
-        "image": "assets/pack/circle.png",
+        "image": "assets/pack/close.png",
         "position": "bottomRight",
         "offsetX": 20,
         "offsetY": 20
@@ -67,7 +64,7 @@
           "#FC9918",
           "#FD5912"
         ],
-        "loaderPosition": "center",
+        "loaderPosition": "bottom",
         "show": true,
         "showLoadingText": false,
         "loadingText": "Loading..."
