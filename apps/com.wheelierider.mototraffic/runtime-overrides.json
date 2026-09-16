@@ -1,9 +1,9 @@
 {
   "app": {
-    "title": "Wheelie Rider Moto Traffic",
+    "title": "Wheelie Rider Moto Traffic 3D",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.wheelierider.mototraffic",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.wheelierider.mototraffic",
     "version": "1.0.0",
     "buildNumber": "1",
