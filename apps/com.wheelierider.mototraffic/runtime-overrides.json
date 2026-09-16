@@ -26,7 +26,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/234483?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -77,7 +77,8 @@
   },
   "meta": {
     "appleDeveloperAccountId": "26c7d7e700a2a1ccc4c7f34e",
-    "appleDeveloperAccountName": "Rida Yazidi"
+    "appleDeveloperAccountName": "Rida Yazidi",
+    "gameUrlSource": "playhop"
   },
   "runtimeOverrides": {
     "baseUrl": "https://raw.githubusercontent.com/9asso/obrigado/main"
