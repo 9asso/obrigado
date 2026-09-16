@@ -13,11 +13,15 @@
   "applovin": {
     "enabled": true,
     "testMode": false,
-    "sdkKey": "",
+    "sdkKey": "g6MIzMD_dwxWL4mWnlILzrMsAywGMuDRUQlrymNWOTrE4NNeGQ_gPUd_ATffpFThG8MgA8CJcumT8AEZsKas4S",
     "android": {
-      "bannerAdUnitId": "",
-      "interstitialAdUnitId": "",
-      "rewardedAdUnitId": ""
+      "bannerAdUnitId": "cbfa87cfee6b1b98",
+      "interstitialAdUnitId": "91066a2d878feec2",
+      "rewardedAdUnitId": "6556c52e848f4ce7",
+      "banner": "cbfa87cfee6b1b98",
+      "interstitial": "91066a2d878feec2",
+      "rewarded": "6556c52e848f4ce7",
+      "rewardedVideoAdUnitId": "6556c52e848f4ce7"
     },
     "ios": {
       "bannerAdUnitId": "",
