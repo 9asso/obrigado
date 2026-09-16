@@ -5,8 +5,8 @@
     "packageName": "com.kuromi.dress.kpop.game",
     "orientation": "landscape",
     "identifierId": "com.kuromi.dress.kpop.game",
-    "version": "1.0.0",
-    "buildNumber": "1",
+    "version": "2.0.0",
+    "buildNumber": 2,
     "enableSplashScreen": true,
     "packageIdentifier": "com.kuromi.dress.kpop.game"
   },
