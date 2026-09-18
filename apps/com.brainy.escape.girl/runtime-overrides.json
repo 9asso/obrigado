@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/234483?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
+    "url": "https://4wsolvy-jbpv1q-54diicd.vercel.app/?app=234483",
     "loader": {
       "enabled": true,
       "duration": 10
@@ -142,6 +142,7 @@
   },
   "meta": {
     "appleDeveloperAccountId": "dc78a2301d9cba49d646f0a9",
-    "appleDeveloperAccountName": "Account 1"
+    "appleDeveloperAccountName": "Account 1",
+    "gameUrlSource": "applePage"
   }
 }
