@@ -3,10 +3,10 @@
     "title": "Wheelie Rider Moto Traffic D",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.brainy.escape.girl",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "identifierId": "com.brainy.escape.girl",
     "version": "1.0.0",
-    "buildNumber": "1",
+    "buildNumber": 9,
     "enableSplashScreen": true,
     "packageIdentifier": "com.brainy.escape.girl"
   },
@@ -43,7 +43,7 @@
     }
   },
   "game": {
-    "url": "https://playhop.com/dist-app/488675?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama&flags=%7B%2522adv_types_disabled%2522:16%7D",
+    "url": "https://playhop.com/dist-app/234483?header=no&skip-guard=1&utm_source=parent_window_api&utm_medium=playgama",
     "loader": {
       "enabled": true,
       "duration": 10
