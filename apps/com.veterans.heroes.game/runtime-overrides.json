@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "heroes among us",
+    "title": "Heroes Among Us",
     "icon": "assets/pack/appicon.png",
     "packageName": "com.veterans.heroes.game",
     "orientation": "landscape",
@@ -140,5 +140,7 @@
     "primaryColor": "#6366F1",
     "accentColor": "#EC4899"
   },
-  "meta": {}
+  "meta": {
+    "gameUrlSource": "playhop"
+  }
 }
